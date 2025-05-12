@@ -30,23 +30,12 @@ module.exports = {
       {
         test: /\.css$/,
         use: [
-          "raw-loader",
+          'style-loader',
           {
-            loader: "postcss-loader",
+            loader: 'css-loader',
             options: {
-              postcssOptions: {
-                plugins: [require("autoprefixer"), require("cssnano")],
-              },
-            },
-          },
-        ],
-        oneOf: [
-          {
-            resourceQuery: /inline/,
-            use: 'string-loader'
-          },
-          {
-            use: ['style-loader', 'css-loader']
+              esModule: false, // Важно для правильного импорта
+            }
           }
         ]
       },

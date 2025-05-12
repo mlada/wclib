@@ -1,5 +1,6 @@
-// globals.d.ts
+import { CSSResult } from "lit";
+
 declare module '*.css' {
-    const content: string;
-    export default content;
+    const styles: CSSResult;
+    export default styles;
   }

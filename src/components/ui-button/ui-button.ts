@@ -1,22 +1,22 @@
-import { LitElement, html, css, unsafeCSS } from 'lit';
+import { LitElement, html, css } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
-import buttonStyles from './ui-button.css?inline';
+import { buttonStyles } from './ui-button.styles';
 
 @customElement('ui-button')
 export class UiButton extends LitElement {
-  static styles = css`${unsafeCSS(buttonStyles)}`;
+  static styles = buttonStyles;
 
   @property({ type: Boolean })
-  primary = false;
+  accessor primary = false;  // Используем accessor (Lit 3.x) или...
 
   @property({ type: String, attribute: 'background-color' })
-  backgroundColor?: string;
+  accessor backgroundColor: string | undefined;  // ...удаляем инициализацию здесь
 
   @property({ type: String })
-  size = 'medium';
+  accessor size = 'medium';
 
   @property({ type: String })
-  label = '';
+  accessor label = '';
 
   render() {
     const mode = this.primary ? 'ui-button--primary' : 'ui-button--secondary';
@@ -32,11 +32,5 @@ export class UiButton extends LitElement {
         ${this.label}
       </button>
     `;
-  }
-}
-
-declare global {
-  interface HTMLElementTagNameMap {
-    'ui-button': UiButton;
   }
 }
