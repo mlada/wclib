@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "strict": true,
+    "declaration": true,
+    "outDir": "./dist",
+    "lib": ["ES2022", "DOM"]
+  },
+  "include": ["src/**/*","declaration.d.ts"],
+  "exclude": ["node_modules"]
+}
