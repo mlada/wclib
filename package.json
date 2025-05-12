@@ -1,6 +1,6 @@
 {
   "name": "@mlada/wclib",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "UI kit web components",
   "license": "SEE LICENSE IN LICENSE",
   "author": "Ranneva Mlada",
@@ -13,14 +13,18 @@
     "dist"
   ],
   "scripts": {
-    "build": "webpack --mode production",
     "start": "webpack serve --mode development",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "prepublishOnly": "npm run build",
-    "build:publish": "npm run build && npm publish --access public"
+    "build:publish": "npm run build && npm publish --access public",
+    "generate": "node ./scripts/generate-adapters.js",
+    "build": "npm run generate && tsc && webpack --mode production"
   },
   "dependencies": {
+    "@angular/core": "^16.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "lit": "^3.3.0"
   },
   "devDependencies": {
@@ -38,6 +42,7 @@
     "babel-loader": "^10.0.0",
     "css-loader": "^7.1.2",
     "cssnano": "^7.0.7",
+    "handlebars": "^4.7.8",
     "html-webpack-plugin": "^5.6.3",
     "mini-css-extract-plugin": "^2.9.2",
     "postcss-loader": "^8.1.1",
@@ -46,9 +51,11 @@
     "string-loader": "^0.0.1",
     "style-loader": "^4.0.0",
     "ts-loader": "^9.5.2",
-    "typescript": "^5.8.3",
     "webpack": "^5.99.8",
     "webpack-cli": "^6.0.1",
-    "webpack-dev-server": "^5.2.1"
+    "webpack-dev-server": "^5.2.1",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "typescript": "^5.0.0"
   }
 }

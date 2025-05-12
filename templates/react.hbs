@@ -1,0 +1,42 @@
+import React, { forwardRef } from 'react';
+
+interface {{componentName}}Props {
+  {{#each attributes}}
+  {{name}}?: {{type}};
+  {{/each}}
+  children?: React.ReactNode;
+  [key: string]: any;
+}
+
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      '{{tagName}}': React.DetailedHTMLProps<
+        React.HTMLAttributes<HTMLElement>,
+        HTMLElement
+      > & {
+        {{#each attributes}}
+        {{name}}?: {{type}};
+        {{/each}}
+      };
+    }
+  }
+}
+
+export const {{componentName}} = forwardRef<HTMLElement, {{componentName}}Props>(
+  ({ {{#each attributes}}{{name}}, {{/each}}children, ...props }, ref) => {
+    return (
+      <{{tagName}} 
+        ref={ref}
+        {...props}
+        {{#each attributes}}
+        {{name}}={ {{name}} }
+        {{/each}}
+      >
+        {children}
+      </{{tagName}}>
+    );
+  }
+);
+
+{{componentName}}.displayName = '{{componentName}}';

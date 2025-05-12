@@ -12,6 +12,9 @@
     "typeRoots": ["./node_modules/@types", "declaration.d.ts"],
     "allowSyntheticDefaultImports": true,
     "useDefineForClassFields": false,
+    "skipLibCheck": true,
+    "jsx": "react-jsx",
+    "jsxImportSource": "react"
   },
 
   "include": ["src/**/*","declaration.d.ts"],

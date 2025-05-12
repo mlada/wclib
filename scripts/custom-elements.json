@@ -1,0 +1,27 @@
+{
+    "version": "1.0.0",
+    "modules": [
+      {
+        "kind": "javascript-module",
+        "path": "dist/components.js",
+        "declarations": [
+          {
+            "kind": "class",
+            "name": "UiButton",
+            "tagName": "ui-button",
+            "customElement": true,
+            "attributes": [
+              {
+                "name": "disabled",
+                "type": { "text": "boolean" }
+              },
+              {
+                "name": "label",
+                "type": { "text": "string" }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }

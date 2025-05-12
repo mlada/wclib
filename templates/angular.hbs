@@ -1,0 +1,15 @@
+import { Directive, ElementRef, Input } from '@angular/core';
+
+@Directive({
+  selector: '{{tagName}}'
+})
+export class {{componentName}}Directive {
+  constructor(private el: ElementRef) {}
+
+  {{#each attributes}}
+  @Input() 
+  set {{name}}(value: {{type}}) {
+    this.el.nativeElement.{{name}} = value;
+  }
+  {{/each}}
+}
