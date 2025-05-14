@@ -4,7 +4,10 @@ const TerserPlugin = require("terser-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
-  entry: "./src/index.ts",
+  entry: {
+    main: './src/index.ts',
+    theme: './src/theme.css'
+  },
   mode: "production",
   output: {
     filename: "bundle.js",
@@ -30,7 +33,8 @@ module.exports = {
       {
         test: /\.css$/,
         use: [
-          'style-loader',
+          MiniCssExtractPlugin.loader,
+          'css-loader',
           {
             loader: 'css-loader',
             options: {
@@ -50,9 +54,8 @@ module.exports = {
       filename: "index.html",
       inject: "body",
     }),
-    ,
     new MiniCssExtractPlugin({
-      filename: "styles.css",
+      filename: '[name].css'
     }),
   ],
   devServer: {

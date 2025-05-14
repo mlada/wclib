@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react';
 
 interface UiFooterProps {
-  socialLinks?: Array&lt;{name: string, url: string, icon: string}&gt;;
+  socialLinks?: Array<{name: string, url: string, icon: string}>;
   children?: React.ReactNode;
   [key: string]: any;
 }
@@ -13,7 +13,7 @@ declare global {
         React.HTMLAttributes<HTMLElement>,
         HTMLElement
       > & {
-        socialLinks?: Array&lt;{name: string, url: string, icon: string}&gt;;
+        socialLinks?: Array<{name: string, url: string, icon: string}>;
       };
     }
   }

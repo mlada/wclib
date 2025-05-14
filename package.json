@@ -23,9 +23,9 @@
   },
   "dependencies": {
     "@angular/core": "^16.0.0",
+    "lit": "^3.3.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "lit": "^3.3.0"
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.27.1",
@@ -38,6 +38,8 @@
     "@storybook/web-components": "^8.6.12",
     "@storybook/web-components-webpack5": "^8.6.12",
     "@types/node": "^22.15.16",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
     "autoprefixer": "^10.4.21",
     "babel-loader": "^10.0.0",
     "css-loader": "^7.1.2",
@@ -51,11 +53,9 @@
     "string-loader": "^0.0.1",
     "style-loader": "^4.0.0",
     "ts-loader": "^9.5.2",
+    "typescript": "^5.0.0",
     "webpack": "^5.99.8",
     "webpack-cli": "^6.0.1",
-    "webpack-dev-server": "^5.2.1",
-    "@types/react": "^18.2.0",
-    "@types/react-dom": "^18.2.0",
-    "typescript": "^5.0.0"
+    "webpack-dev-server": "^5.2.1"
   }
 }

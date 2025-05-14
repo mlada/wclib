@@ -19,13 +19,8 @@
               "description": "Основной стиль кнопки"
             },
             {
-              "name": "background-color",
-              "type": { "text": "string" },
-              "description": "Цвет фона кнопки"
-            },
-            {
               "name": "size",
-              "type": { "text": "'small' | 'medium' | 'large'" },
+              "type": { "text": "small | medium | large"},
               "default": "'medium'",
               "description": "Размер кнопки"
             },
@@ -62,7 +57,7 @@
               "description": "Заголовок карточки"
             },
             {
-              "name": "image-url",
+              "name": "imageUrl",
               "type": { "text": "string" },
               "description": "URL изображения для карточки"
             },

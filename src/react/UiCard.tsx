@@ -2,7 +2,7 @@ import React, { forwardRef } from 'react';
 
 interface UiCardProps {
   header?: string;
-  image-url?: string;
+  imageUrl?: string;
   hoverable?: boolean;
   children?: React.ReactNode;
   [key: string]: any;
@@ -16,7 +16,7 @@ declare global {
         HTMLElement
       > & {
         header?: string;
-        image-url?: string;
+        imageUrl?: string;
         hoverable?: boolean;
       };
     }
@@ -24,13 +24,13 @@ declare global {
 }
 
 export const UiCard = forwardRef<HTMLElement, UiCardProps>(
-  ({ header, image-url, hoverable, children, ...props }, ref) => {
+  ({ header, imageUrl, hoverable, children, ...props }, ref) => {
     return (
       <ui-card 
         ref={ref}
         {...props}
         header={ header }
-        image-url={ image-url }
+        image-url={ imageUrl }
         hoverable={ hoverable }
       >
         {children}

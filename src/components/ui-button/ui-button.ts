@@ -9,9 +9,6 @@ export class UiButton extends LitElement {
   @property({ type: Boolean })
   accessor primary = false;  // Используем accessor (Lit 3.x) или...
 
-  @property({ type: String, attribute: 'background-color' })
-  accessor backgroundColor: string | undefined;  // ...удаляем инициализацию здесь
-
   @property({ type: String })
   accessor size = 'medium';
 
@@ -26,7 +23,6 @@ export class UiButton extends LitElement {
       <button
         type="button"
         class=${classes}
-        style=${this.backgroundColor ? `background-color: ${this.backgroundColor}` : ''}
         @click=${(e: Event) => this.dispatchEvent(new CustomEvent('click', { detail: e }))}
       >
         ${this.label}

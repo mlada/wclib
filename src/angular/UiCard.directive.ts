@@ -11,8 +11,8 @@ export class UiCardDirective {
     this.el.nativeElement.header = value;
   }
   @Input() 
-  set image-url(value: string) {
-    this.el.nativeElement.image-url = value;
+  set imageUrl(value: string) {
+    this.el.nativeElement.imageUrl = value;
   }
   @Input() 
   set hoverable(value: boolean) {

@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react';
 
 interface UiInputProps {
-  type?: &#x27;text&#x27; | &#x27;password&#x27; | &#x27;email&#x27; | &#x27;number&#x27;;
+  type?: 'text' | 'password' | 'email' | 'number';
   value?: string;
   placeholder?: string;
   disabled?: boolean;
@@ -16,7 +16,7 @@ declare global {
         React.HTMLAttributes<HTMLElement>,
         HTMLElement
       > & {
-        type?: &#x27;text&#x27; | &#x27;password&#x27; | &#x27;email&#x27; | &#x27;number&#x27;;
+        type?: 'text' | 'password' | 'email' | 'number';
         value?: string;
         placeholder?: string;
         disabled?: boolean;

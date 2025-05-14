@@ -7,7 +7,7 @@ export class UiInputDirective {
   constructor(private el: ElementRef) {}
 
   @Input() 
-  set type(value: &#x27;text&#x27; | &#x27;password&#x27; | &#x27;email&#x27; | &#x27;number&#x27;) {
+  set type(value: 'text' | 'password' | 'email' | 'number') {
     this.el.nativeElement.type = value;
   }
   @Input() 
