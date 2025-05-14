@@ -5,5 +5,5 @@ export declare class UiButton extends LitElement {
     accessor backgroundColor: string | undefined;
     accessor size: string;
     accessor label: string;
-    render(): import("lit").TemplateResult<1>;
+    render(): import("lit-html").TemplateResult<1>;
 }

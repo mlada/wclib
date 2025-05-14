@@ -1,7 +1,9 @@
 import React, { forwardRef } from 'react';
 
 interface UiButtonProps {
-  disabled?: boolean;
+  primary?: boolean;
+  background-color?: string;
+  size?: &#x27;small&#x27; | &#x27;medium&#x27; | &#x27;large&#x27;;
   label?: string;
   children?: React.ReactNode;
   [key: string]: any;
@@ -14,7 +16,9 @@ declare global {
         React.HTMLAttributes<HTMLElement>,
         HTMLElement
       > & {
-        disabled?: boolean;
+        primary?: boolean;
+        background-color?: string;
+        size?: &#x27;small&#x27; | &#x27;medium&#x27; | &#x27;large&#x27;;
         label?: string;
       };
     }
@@ -22,12 +26,14 @@ declare global {
 }
 
 export const UiButton = forwardRef<HTMLElement, UiButtonProps>(
-  ({ disabled, label, children, ...props }, ref) => {
+  ({ primary, background-color, size, label, children, ...props }, ref) => {
     return (
       <ui-button 
         ref={ref}
         {...props}
-        disabled={ disabled }
+        primary={ primary }
+        background-color={ background-color }
+        size={ size }
         label={ label }
       >
         {children}

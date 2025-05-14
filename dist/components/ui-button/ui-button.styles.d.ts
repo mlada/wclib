@@ -1,1 +1,1 @@
-export declare const buttonStyles: import("lit").CSSResult;
+export declare const styles: import("lit").CSSResult;
