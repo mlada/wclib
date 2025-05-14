@@ -34,7 +34,36 @@ const Template = () => html`
   </ui-header>
 
   <main class="subscribe-page">
-    <!-- ... остальной контент ... -->
+    <section class="hero-section">
+      <h1>Подпишитесь на новости!</h1>
+      <div class="subscribe-form">
+        <ui-input
+          type="email"
+          placeholder="Ваш email"
+          style="width: 300px;"
+        ></ui-input>
+        <ui-button
+          primary
+          label="Отправить"
+          @click=${() => console.log("Отправить clicked")}
+        ></ui-button>
+      </div>
+    </section>
+
+    <section class="news-section">
+      <h2>Последние новости</h2>
+      <div class="news-grid">
+        <ui-card header="Новость 1" hoverable>
+          <p>Описание первой новости. Что-то интересное произошло.</p>
+        </ui-card>
+        <ui-card header="Новость 2" hoverable>
+          <p>Вторая новость еще более увлекательная!</p>
+        </ui-card>
+        <ui-card header="Новость 3" hoverable>
+          <p>Третья новость завершает трилогию.</p>
+        </ui-card>
+      </div>
+    </section>
   </main>
 
   <ui-footer
