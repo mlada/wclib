@@ -1,10 +1,10 @@
 import { LitElement, html, css } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
-import { buttonStyles } from './ui-button.styles';
+import { styles } from './ui-button.styles';
 
 @customElement('ui-button')
 export class UiButton extends LitElement {
-  static styles = buttonStyles;
+  static styles = styles;
 
   @property({ type: Boolean })
   accessor primary = false;  // Используем accessor (Lit 3.x) или...

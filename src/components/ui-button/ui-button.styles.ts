@@ -1,7 +1,6 @@
-// ui-button.styles.ts
 import { css } from 'lit';
 
-export const buttonStyles = css`
+export const styles = css`
   .ui-button {
     font-family: inherit;
     border: none;

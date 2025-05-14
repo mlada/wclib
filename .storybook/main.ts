@@ -1,8 +1,9 @@
 module.exports = {
-  stories: ['../src/stories/**/*.stories.@(js|ts)'],
-  addons: ['@storybook/addon-essentials'],
+  staticDirs: ["../public"],
+  stories: ["../src/stories/**/*.stories.@(js|ts)"],
+  addons: ["@storybook/addon-essentials"],
   framework: {
-    name: '@storybook/web-components-webpack5',
+    name: "@storybook/web-components-webpack5",
     options: {},
   },
   typescript: {
@@ -16,17 +17,17 @@ module.exports = {
       exclude: /node_modules/,
       use: [
         {
-          loader: 'ts-loader',
+          loader: "ts-loader",
           options: {
             transpileOnly: true, // Faster builds
-            appendTsSuffixTo: [/\.vue$/] // Only if using Vue
-          }
-        }
-      ]
+            appendTsSuffixTo: [/\.vue$/], // Only if using Vue
+          },
+        },
+      ],
     });
 
     // Ensure .ts extensions are resolved
-    config.resolve.extensions.push('.ts');
+    config.resolve.extensions.push(".ts");
 
     return config;
   },
