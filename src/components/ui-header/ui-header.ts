@@ -1,6 +1,4 @@
-// @ts-nocheck
-// @ts-ignore
-/* eslint-disable */
+
 import { LitElement, html, css, CSSResult } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { styles } from './ui-header.styles';

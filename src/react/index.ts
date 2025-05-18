@@ -1,6 +1,4 @@
-// @ts-nocheck
-// @ts-ignore
-/* eslint-disable */
+
 import { ReactUiButton } from './UiButton'
 import { ReactUiCard } from './UiCard'
 import { ReactUiFooter  } from './UiFooter'

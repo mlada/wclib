@@ -1,6 +1,4 @@
-// @ts-ignore
-// @ts-nocheck
-/* eslint-disable */
+
 import { Directive, ElementRef, Input, ViewChild } from "@angular/core";
 
 @Directive({
