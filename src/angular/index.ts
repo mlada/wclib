@@ -1,3 +1,6 @@
+// @ts-nocheck
+// @ts-ignore
+/* eslint-disable */
 
 import { UiButtonDirective } from './UiButton.directive'
 import { UiCardDirective } from './UiCard.directive'

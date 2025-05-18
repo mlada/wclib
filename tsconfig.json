@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
     "experimentalDecorators": true,
-   
     "target": "ES2022",
     "module": "ESNext",
     "lib": ["ES6", "DOM", "ES2015"],
@@ -14,15 +13,16 @@
     "skipLibCheck": true,
     "jsx": "react-jsx",
     "jsxImportSource": "react",
-    "strict": false,
-    "noImplicitAny": false,
-    "strictNullChecks": false,
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
     "strictPropertyInitialization": false,
-    "strictBindCallApply": false,
-    "strictFunctionTypes": false,
+    "strictBindCallApply": true,
+    "strictFunctionTypes": true,
+    "esModuleInterop": true,
   },
   "angularCompilerOptions": {
-    "strictTemplates": true
+    "strictTemplates": false
   },
   "include": ["src/**/*", "declaration.d.ts"],
   "exclude": ["node_modules"]

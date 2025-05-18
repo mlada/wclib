@@ -22,7 +22,7 @@ declare const _default: {
             action: string;
         };
     };
-    render: (args: any) => import("lit-html").TemplateResult<1>;
+    render: (args: any) => import("lit").TemplateResult<1>;
 };
 export default _default;
 export declare const Primary: {

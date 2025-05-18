@@ -1,11 +1,17 @@
 import React, { forwardRef } from 'react';
 
-interface UiButtonProps {
+import PropTypes from 'prop-types';
+
+
+interface UiButtonProps extends React.HTMLAttributes<HTMLElement> {
+  /** Whether the button should use primary styling */
   primary?: boolean;
+  /** The size of the button */
   size?: 'small' | 'medium' | 'large';
+  /** The button label text */
   label?: string;
+  /** React children */
   children?: React.ReactNode;
-  [key: string]: any;
 }
 
 declare global {
@@ -26,12 +32,12 @@ declare global {
 export const ReactUiButton = forwardRef<HTMLElement, UiButtonProps>(
   ({ primary, size, label, children, ...props }, ref) => {
     return (
-      <ui-button 
+      <ui-button
         ref={ref}
+        primary={primary}
+        size={size}
+        label={label}
         {...props}
-        primary={ primary }
-        size={ size }
-        label={ label }
       >
         {children}
       </ui-button>
@@ -39,4 +45,11 @@ export const ReactUiButton = forwardRef<HTMLElement, UiButtonProps>(
   }
 );
 
-ReactUiButton.displayName = 'UiButton';
+ReactUiButton.displayName = 'ReactUiButton';
+
+
+ReactUiButton.propTypes = {
+  primary: PropTypes.bool,
+  size: PropTypes.oneOf(['small', 'medium', 'large']),
+  label: PropTypes.string,
+}; 

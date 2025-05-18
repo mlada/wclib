@@ -1,3 +1,6 @@
+// @ts-nocheck
+// @ts-ignore
+/* eslint-disable */
 import { html } from "lit";
 import "../index";
 

@@ -1,32 +1,48 @@
-import { LitElement, html, css, CSSResult } from 'lit';
+import { LitElement, html, css } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
+import { classMap } from 'lit/directives/class-map.js';
 import { styles } from './ui-button.styles';
+
+type ButtonSize = 'small' | 'medium' | 'large';
 
 @customElement('ui-button')
 export class UiButton extends LitElement {
-  static styles: CSSResult = styles;
+  static styles = styles;
 
   @property({ type: Boolean })
-  accessor primary: boolean = false;  // Используем accessor (Lit 3.x) или...
+  accessor primary = false;
 
   @property({ type: String })
-  accessor size: string = 'medium';
+  accessor size: ButtonSize = 'medium';
 
   @property({ type: String })
-  accessor label: string = '';
+  accessor label = '';
 
   render() {
-    const mode : string = this.primary ? 'ui-button--primary' : 'ui-button--secondary';
-    const classes : string = ['ui-button', `ui-button--${this.size}`, mode].join(' ');
+    const classes = {
+      'ui-button': true,
+      'ui-button--primary': this.primary,
+      'ui-button--secondary': !this.primary,
+      [`ui-button--${this.size}`]: true
+    };
 
     return html`
       <button
         type="button"
-        class=${classes}
-        @click=${(e: Event) => this.dispatchEvent(new CustomEvent('click', { detail: e }))}
+        class=${classMap(classes)}
+        @click=${this.handleClick}
+        part="button"
       >
         ${this.label}
       </button>
     `;
+  }
+
+  private handleClick(e: Event) {
+    this.dispatchEvent(new CustomEvent('click', {
+      detail: e,
+      bubbles: true,
+      composed: true
+    }));
   }
 }
