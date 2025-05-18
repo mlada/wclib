@@ -19,7 +19,7 @@ declare global {
   }
 }
 
-export const UiFooter = forwardRef<HTMLElement, UiFooterProps>(
+export const ReactUiFooter = forwardRef<HTMLElement, UiFooterProps>(
   ({ socialLinks, children, ...props }, ref) => {
     return (
       <ui-footer 
@@ -33,4 +33,4 @@ export const UiFooter = forwardRef<HTMLElement, UiFooterProps>(
   }
 );
 
-UiFooter.displayName = 'UiFooter';
+ReactUiFooter.displayName = 'UiFooter';

@@ -1,25 +1,25 @@
-import { LitElement, html, css } from 'lit';
+import { LitElement, html, css, CSSResult } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { styles } from './ui-card.styles';
 
 @customElement('ui-card')
 export class UiCard extends LitElement {
-  static styles = styles;
+  static styles  : CSSResult = styles;
 
   @property({ type: String })
-  accessor header = '';
+  accessor header: string = '';
 
   @property({ type: String })
-  accessor icon = '';
+  accessor icon: string = '';
 
   @property({ type: String, attribute: 'image-url' })
-  accessor imageUrl = '';
+  accessor imageUrl: string = '';
 
   @property({ type: String, attribute: 'image-alt' })
-  accessor imageAlt = '';
+  accessor imageAlt: string = '';
 
   @property({ type: Boolean })
-  accessor hoverable = false;
+  accessor hoverable: boolean = false;
 
   render() {
     return html`

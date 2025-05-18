@@ -16,7 +16,7 @@ declare global {
         React.HTMLAttributes<HTMLElement>,
         HTMLElement
       > & {
-        type?: 'text' | 'password' | 'email' | 'number';
+        type?:  'text' | 'password' | 'email' | 'number';
         value?: string;
         placeholder?: string;
         disabled?: boolean;
@@ -25,7 +25,7 @@ declare global {
   }
 }
 
-export const UiInput = forwardRef<HTMLElement, UiInputProps>(
+export const ReactUiInput = forwardRef<HTMLElement, UiInputProps>(
   ({ type, value, placeholder, disabled, children, ...props }, ref) => {
     return (
       <ui-input 
@@ -42,4 +42,4 @@ export const UiInput = forwardRef<HTMLElement, UiInputProps>(
   }
 );
 
-UiInput.displayName = 'UiInput';
+ReactUiInput.displayName = 'UiInput';

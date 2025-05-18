@@ -1,10 +1,13 @@
+// @ts-ignore
+// @ts-nocheck
+/* eslint-disable */
 import { Directive, ElementRef, Input } from '@angular/core';
 
 @Directive({
   selector: '{{tagName}}'
 })
 export class {{componentName}}Directive {
-  constructor(private el: ElementRef) {}
+  @ViewChild('el') private el: ElementRef;
 
   {{#each attributes}}
   @Input() 

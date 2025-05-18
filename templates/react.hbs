@@ -23,7 +23,7 @@ declare global {
   }
 }
 
-export const {{componentName}} = forwardRef<HTMLElement, {{componentName}}Props>(
+export const React{{componentName}} = forwardRef<HTMLElement, {{componentName}}Props>(
   ({ {{#each attributes}}{{name}}, {{/each}}children, ...props }, ref) => {
     return (
       <{{tagName}} 

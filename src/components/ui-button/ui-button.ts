@@ -1,23 +1,23 @@
-import { LitElement, html, css } from 'lit';
+import { LitElement, html, css, CSSResult } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { styles } from './ui-button.styles';
 
 @customElement('ui-button')
 export class UiButton extends LitElement {
-  static styles = styles;
+  static styles: CSSResult = styles;
 
   @property({ type: Boolean })
-  accessor primary = false;  // Используем accessor (Lit 3.x) или...
+  accessor primary: boolean = false;  // Используем accessor (Lit 3.x) или...
 
   @property({ type: String })
-  accessor size = 'medium';
+  accessor size: string = 'medium';
 
   @property({ type: String })
-  accessor label = '';
+  accessor label: string = '';
 
   render() {
-    const mode = this.primary ? 'ui-button--primary' : 'ui-button--secondary';
-    const classes = ['ui-button', `ui-button--${this.size}`, mode].join(' ');
+    const mode : string = this.primary ? 'ui-button--primary' : 'ui-button--secondary';
+    const classes : string = ['ui-button', `ui-button--${this.size}`, mode].join(' ');
 
     return html`
       <button

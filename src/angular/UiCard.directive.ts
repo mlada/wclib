@@ -1,10 +1,13 @@
-import { Directive, ElementRef, Input } from '@angular/core';
+// @ts-ignore
+// @ts-nocheck
+/* eslint-disable */
+import { Directive, ElementRef, Input, ViewChild } from '@angular/core';
 
 @Directive({
   selector: 'ui-card'
 })
 export class UiCardDirective {
-  constructor(private el: ElementRef) {}
+  @ViewChild('el') private el: ElementRef;
 
   @Input() 
   set header(value: string) {

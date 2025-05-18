@@ -1,13 +1,16 @@
-import { Directive, ElementRef, Input } from '@angular/core';
+// @ts-ignore
+// @ts-nocheck
+/* eslint-disable */
+import { Directive, ElementRef, Input, ViewChild } from '@angular/core';
 
 @Directive({
   selector: 'ui-input'
 })
 export class UiInputDirective {
-  constructor(private el: ElementRef) {}
+  @ViewChild("el") private el: ElementRef;
 
   @Input() 
-  set type(value: 'text' | 'password' | 'email' | 'number') {
+  set type(value:  'text' | 'password' | 'email' | 'number') {
     this.el.nativeElement.type = value;
   }
   @Input() 

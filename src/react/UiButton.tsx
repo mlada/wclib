@@ -23,7 +23,7 @@ declare global {
   }
 }
 
-export const UiButton = forwardRef<HTMLElement, UiButtonProps>(
+export const ReactUiButton = forwardRef<HTMLElement, UiButtonProps>(
   ({ primary, size, label, children, ...props }, ref) => {
     return (
       <ui-button 
@@ -39,4 +39,4 @@ export const UiButton = forwardRef<HTMLElement, UiButtonProps>(
   }
 );
 
-UiButton.displayName = 'UiButton';
+ReactUiButton.displayName = 'UiButton';

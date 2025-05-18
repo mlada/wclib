@@ -1,10 +1,10 @@
-import { LitElement, html, css } from 'lit';
+import { LitElement, html, css, CSSResult } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { styles } from './ui-header.styles';
 
 @customElement('ui-header')
 export class UiHeader extends LitElement {
-  static styles = styles;
+  static styles: CSSResult = styles;
 
   render() {
     return html`

@@ -17,7 +17,7 @@ declare global {
   }
 }
 
-export const UiHeader = forwardRef<HTMLElement, UiHeaderProps>(
+export const ReactUiHeader = forwardRef<HTMLElement, UiHeaderProps>(
   ({ children, ...props }, ref) => {
     return (
       <ui-header 
@@ -30,4 +30,4 @@ export const UiHeader = forwardRef<HTMLElement, UiHeaderProps>(
   }
 );
 
-UiHeader.displayName = 'UiHeader';
+ReactUiHeader.displayName = 'UiHeader';

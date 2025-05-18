@@ -23,14 +23,14 @@ declare global {
   }
 }
 
-export const UiCard = forwardRef<HTMLElement, UiCardProps>(
+export const ReactUiCard = forwardRef<HTMLElement, UiCardProps>(
   ({ header, imageUrl, hoverable, children, ...props }, ref) => {
     return (
       <ui-card 
         ref={ref}
         {...props}
         header={ header }
-        image-url={ imageUrl }
+        imageUrl={ imageUrl }
         hoverable={ hoverable }
       >
         {children}
@@ -39,4 +39,4 @@ export const UiCard = forwardRef<HTMLElement, UiCardProps>(
   }
 );
 
-UiCard.displayName = 'UiCard';
+ReactUiCard.displayName = 'UiCard';

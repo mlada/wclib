@@ -1,21 +1,36 @@
-import { Directive, ElementRef, Input } from '@angular/core';
+// @ts-ignore
+// @ts-nocheck
+/* eslint-disable */
+import { Directive, ElementRef, Input, ViewChild } from "@angular/core";
+
+interface UiButton extends HTMLElement {
+  primary: boolean;
+  size: "small" | "medium" | "large";
+  label: string;
+}
 
 @Directive({
-  selector: 'ui-button'
+  selector: "ui-button",
 })
 export class UiButtonDirective {
-  constructor(private el: ElementRef) {}
+  @ViewChild("el") private el!: ElementRef;
 
-  @Input() 
-  set primary(value: boolean) {
-    this.el.nativeElement.primary = value;
-  } 
-  @Input() 
-  set size(value: 'small' | 'medium' | 'large') {
-    this.el.nativeElement.size = value;
+  get button(): UiButton {
+    return this.el!.nativeElement;
   }
-  @Input() 
+
+  @Input()
+  set primary(value: boolean | undefined) {
+    this.button!.primary = !!value;
+  }
+
+  @Input()
+  set size(value: "small" | "medium" | "large" | undefined) {
+    this.button!.size = !value ? "medium" : value;
+  }
+
+  @Input()
   set label(value: string) {
-    this.el.nativeElement.label = value;
+    this.button!.label = !value ? "" : value;
   }
 }

@@ -1,43 +1,43 @@
-import { LitElement, html, css } from 'lit';
+import { LitElement, html, css, CSSResult } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { styles } from './ui-input.styles';
 
 @customElement('ui-input')
 export class UiInput extends LitElement {
-  static styles = styles;
+  static styles : CSSResult = styles;
 
   @property({ type: String })
-  accessor value = '';
+  accessor value: string = '';
 
   @property({ type: String })
-  accessor label = '';
+  accessor label: string = '';
 
   @property({ type: String })
-  accessor placeholder = '';
+  accessor placeholder: string = '';
 
   @property({ type: String })
   accessor type: 'text' | 'password' | 'email' | 'number' = 'text';
 
   @property({ type: Boolean })
-  accessor disabled = false;
+  accessor disabled: boolean = false;
 
   @property({ type: Boolean })
-  accessor invalid = false;
+  accessor invalid: boolean = false;
 
   @property({ type: String, attribute: 'error-message' })
-  accessor errorMessage = '';
+  accessor errorMessage: string = '';
 
   @property({ type: String })
-  accessor hint = '';
+  accessor hint: string = '';
 
   @property({ type: String, attribute: 'prefix-icon' })
-  accessor prefixIcon = '';
+  accessor prefixIcon: string = '';
 
   @property({ type: String, attribute: 'suffix-icon' })
-  accessor suffixIcon = '';
+  accessor suffixIcon: string = '';
 
   @property({ type: Boolean })
-  accessor clearable = false;
+  accessor clearable: boolean = false;
 
   #handleChange(e: Event) {
     this.value = (e.target as HTMLInputElement).value;

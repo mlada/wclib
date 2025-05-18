@@ -1,22 +1,29 @@
 {
   "compilerOptions": {
     "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
+   
     "target": "ES2022",
     "module": "ESNext",
+    "lib": ["ES6", "DOM", "ES2015"],
     "moduleResolution": "node",
-    "strict": true,
     "declaration": true,
     "outDir": "./dist",
-    "lib": ["ES2022", "DOM"],
     "typeRoots": ["./node_modules/@types", "declaration.d.ts"],
     "allowSyntheticDefaultImports": true,
     "useDefineForClassFields": false,
     "skipLibCheck": true,
     "jsx": "react-jsx",
-    "jsxImportSource": "react"
+    "jsxImportSource": "react",
+    "strict": false,
+    "noImplicitAny": false,
+    "strictNullChecks": false,
+    "strictPropertyInitialization": false,
+    "strictBindCallApply": false,
+    "strictFunctionTypes": false,
   },
-
-  "include": ["src/**/*","declaration.d.ts"],
+  "angularCompilerOptions": {
+    "strictTemplates": true
+  },
+  "include": ["src/**/*", "declaration.d.ts"],
   "exclude": ["node_modules"]
 }

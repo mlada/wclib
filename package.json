@@ -1,6 +1,6 @@
 {
   "name": "@mlada/wclib",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "UI kit web components",
   "license": "SEE LICENSE IN LICENSE",
   "author": "Ranneva Mlada",
@@ -19,13 +19,15 @@
     "prepublishOnly": "npm run build",
     "build:publish": "npm run build && npm publish --access public",
     "generate": "node ./scripts/generate-adapters.js",
-    "build": "npm run generate && tsc && webpack --mode production"
+    "build": "tsc && webpack --mode production"
   },
   "dependencies": {
+    "@abraham/reflection": "^0.13.0",
     "@angular/core": "^16.0.0",
     "lit": "^3.3.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "reflect-metadata": "^0.2.2"
   },
   "devDependencies": {
     "@babel/core": "^7.27.1",

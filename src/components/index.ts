@@ -1,8 +1,10 @@
-import { UiButton } from "./components/ui-button/ui-button";
-import { UiCard } from "./components/ui-card/ui-card";
-import { UiFooter } from "./components/ui-footer/ui-footer";
-import { UiHeader } from "./components/ui-header/ui-header";
-import { UiInput } from "./components/ui-input/ui-input";
+import "reflect-metadata"; // Добавьте в самый верх вашего главного файла
+// 
+import { UiButton } from "./ui-button/ui-button";
+import { UiCard } from "./ui-card/ui-card";
+import { UiFooter } from "./ui-footer/ui-footer";
+import { UiHeader } from "./ui-header/ui-header";
+import { UiInput } from "./ui-input/ui-input";
 
 export { UiButton, UiCard, UiFooter, UiHeader, UiInput };
 
@@ -22,6 +24,3 @@ if (!customElements.get("ui-header")) {
 if (!customElements.get("ui-input")) {
   customElements.define("ui-input", UiInput);
 }
-// if (!customElements.get('ui-page')) {
-//   customElements.define('ui-page', UiPage);
-// }

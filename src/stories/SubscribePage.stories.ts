@@ -1,5 +1,5 @@
 import { html } from "lit";
-import { UiButton, UiCard, UiFooter, UiHeader, UiInput } from "../index";
+import { UiButton, UiCard, UiFooter, UiHeader, UiInput } from "../components/index";
 import "./subscribe-page.css";
 
 // Пути к изображениям (Storybook будет искать их в public/assets)

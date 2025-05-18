@@ -1,4 +1,4 @@
-import { LitElement, html, css } from "lit";
+import { LitElement, html, css, CSSResult } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import { styles } from "./ui-footer.styles";
 
@@ -20,7 +20,7 @@ interface SocialLink {
 
 @customElement("ui-footer")
 export class UiFooter extends LitElement {
-  static styles = styles;
+  static styles: CSSResult = styles;
 
   @property({ type: Object })
   accessor user: { name: string } | null = null;
@@ -54,7 +54,7 @@ export class UiFooter extends LitElement {
   ];
 
   @property({ type: Array })
-  accessor socialLinks: Array<{ name: string; url: string; icon: string }> = [];
+  accessor socialLinks: SocialLink[] = [];
 
   #scrollToTop() {
     window.scrollTo({ top: 0, behavior: "smooth" });

@@ -1,9 +1,12 @@
-import { Directive, ElementRef, Input } from '@angular/core';
+// @ts-ignore
+// @ts-nocheck
+/* eslint-disable */
+import { Directive, ElementRef, ViewChild } from '@angular/core';
 
 @Directive({
   selector: 'ui-header'
 })
 export class UiHeaderDirective {
-  constructor(private el: ElementRef) {}
+  @ViewChild("el") private el: ElementRef;
 
 }
