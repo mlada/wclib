@@ -1,6 +1,6 @@
 {
   "name": "@mlada/wclib",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "description": "UI kit web components",
   "license": "SEE LICENSE IN LICENSE",
   "author": "Ranneva Mlada",
@@ -17,7 +17,7 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "prepublishOnly": "npm run build",
-    "build:publish": "npm run build && npm publish --access public",
+    "publish": "npm publish --access public",
     "generate": "node ./scripts/generate-adapters.js",
     "build": "tsc && webpack --mode production"
   },
@@ -36,6 +36,7 @@
     "@storybook/blocks": "^8.6.12",
     "@storybook/test": "^8.6.12",
     "@storybook/web-components": "^8.6.12",
+    "@storybook/web-components-vite": "^8.6.14",
     "@storybook/web-components-webpack5": "^8.6.12",
     "@types/node": "^22.15.16",
     "@types/react": "^18.3.21",

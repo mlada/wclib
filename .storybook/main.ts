@@ -32,3 +32,22 @@ module.exports = {
     return config;
   },
 };
+import type { StorybookConfig } from '@storybook/web-components-vite';
+
+const config: StorybookConfig = {
+  stories: ['../src/**/*.stories.ts'],
+  addons: [
+    '@storybook/addon-essentials',
+    '@storybook/addon-controls',
+    '@storybook/addon-actions'
+  ],
+  framework: {
+    name: '@storybook/web-components-vite',
+    options: {}
+  },
+  docs: {
+    autodocs: 'tag'
+  }
+};
+
+export default config;

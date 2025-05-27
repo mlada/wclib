@@ -1,29 +1,29 @@
-import { LitElement, html, css } from 'lit';
-import { customElement, property } from 'lit/decorators.js';
-import { classMap } from 'lit/directives/class-map.js';
-import { styles } from './ui-button.styles';
+import { LitElement, html, css, CSSResult } from "lit";
+import { customElement, property } from "lit/decorators.js";
+import { classMap } from "lit/directives/class-map.js";
+import { styles } from "./ui-button.styles";
 
-type ButtonSize = 'small' | 'medium' | 'large';
+type ButtonSize = "small" | "medium" | "large";
 
-@customElement('ui-button')
+@customElement("ui-button")
 export class UiButton extends LitElement {
-  static styles = styles;
+  static styles: CSSResult = styles;
 
   @property({ type: Boolean })
-  accessor primary = false;
+  primary: boolean = false;
 
   @property({ type: String })
-  accessor size: ButtonSize = 'medium';
+  size: ButtonSize = "medium";
 
   @property({ type: String })
-  accessor label = '';
+  label = "";
 
   render() {
     const classes = {
-      'ui-button': true,
-      'ui-button--primary': this.primary,
-      'ui-button--secondary': !this.primary,
-      [`ui-button--${this.size}`]: true
+      "ui-button": true,
+      "ui-button--primary": this.primary,
+      "ui-button--secondary": !this.primary,
+      [`ui-button--${this.size}`]: true,
     };
 
     return html`
@@ -31,7 +31,6 @@ export class UiButton extends LitElement {
         type="button"
         class=${classMap(classes)}
         @click=${this.handleClick}
-        part="button"
       >
         ${this.label}
       </button>
@@ -39,10 +38,12 @@ export class UiButton extends LitElement {
   }
 
   private handleClick(e: Event) {
-    this.dispatchEvent(new CustomEvent('click', {
-      detail: e,
-      bubbles: true,
-      composed: true
-    }));
+    this.dispatchEvent(
+      new CustomEvent("click", {
+        detail: { originalEvent: e },
+        bubbles: true,
+        composed: true,
+      })
+    );
   }
 }

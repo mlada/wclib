@@ -6,12 +6,12 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
   entry: {
-    "web-components": "./src/components/index.ts",
+    components: "./src/components/index.ts",
     angular: "./src/angular/index.ts",
     react: "./src/react/index.ts",
   },
   output: {
-    filename: "[name].[contenthash].bundle.js",
+    filename: "[name].bundle.js",
     path: path.resolve(__dirname, "dist"),
     library: {
       type: "umd",

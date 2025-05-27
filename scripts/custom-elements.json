@@ -1,160 +1,160 @@
-// {
-//   "version": "1.0.0",
-//   "modules": [
-//     {
-//       "kind": "javascript-module",
-//       "path": "dist/components.js",
-//       "declarations": [
-//         {
-//           "kind": "class",
-//           "name": "UiButton",
-//           "tagName": "ui-button",
-//           "customElement": true,
-//           "description": "Кнопка пользовательского интерфейса",
-//           "attributes": [
-//             {
-//               "name": "primary",
-//               "type": { "text": "boolean" },
-//               "default": "false",
-//               "description": "Основной стиль кнопки"
-//             },
-//             {
-//               "name": "size",
-//               "type": { "text": "small | medium | large"},
-//               "default": "'medium'",
-//               "description": "Размер кнопки"
-//             },
-//             {
-//               "name": "label",
-//               "type": { "text": "string" },
-//               "description": "Текст кнопки",
-//               "required": true
-//             }
-//           ],
-//           "events": [
-//             {
-//               "name": "click",
-//               "description": "Событие клика по кнопке"
-//             }
-//           ],
-//           "slots": [
-//             {
-//               "name": "",
-//               "description": "Контент кнопки (альтернатива атрибуту label)"
-//             }
-//           ]
-//         },
-//         {
-//           "kind": "class",
-//           "name": "UiCard",
-//           "tagName": "ui-card",
-//           "customElement": true,
-//           "description": "Карточка для отображения контента",
-//           "attributes": [
-//             {
-//               "name": "header",
-//               "type": { "text": "string" },
-//               "description": "Заголовок карточки"
-//             },
-//             {
-//               "name": "imageUrl",
-//               "type": { "text": "string" },
-//               "description": "URL изображения для карточки"
-//             },
-//             {
-//               "name": "hoverable",
-//               "type": { "text": "boolean" },
-//               "default": "false",
-//               "description": "Эффект при наведении"
-//             }
-//           ],
-//           "slots": [
-//             {
-//               "name": "",
-//               "description": "Основной контент карточки"
-//             },
-//             {
-//               "name": "actions",
-//               "description": "Кнопки действий в карточке"
-//             }
-//           ]
-//         },
-//         {
-//           "kind": "class",
-//           "name": "UiInput",
-//           "tagName": "ui-input",
-//           "customElement": true,
-//           "description": "Поле ввода",
-//           "attributes": [
-//             {
-//               "name": "type",
-//               "type": { "text": "'text' | 'password' | 'email' | 'number'" },
-//               "default": "'text'",
-//               "description": "Тип поля ввода"
-//             },
-//             {
-//               "name": "value",
-//               "type": { "text": "string" },
-//               "description": "Значение поля"
-//             },
-//             {
-//               "name": "placeholder",
-//               "type": { "text": "string" },
-//               "description": "Подсказка в поле"
-//             },
-//             {
-//               "name": "disabled",
-//               "type": { "text": "boolean" },
-//               "default": "false",
-//               "description": "Отключено ли поле"
-//             }
-//           ],
-//           "events": [
-//             {
-//               "name": "change",
-//               "description": "Событие изменения значения"
-//             }
-//           ]
-//         },
-//         {
-//           "kind": "class",
-//           "name": "UiHeader",
-//           "tagName": "ui-header",
-//           "customElement": true,
-//           "description": "Шапка страницы",
-//           "slots": [
-//             {
-//               "name": "logo-section",
-//               "description": "Секция с логотипом"
-//             },
-//             {
-//               "name": "auth-section",
-//               "description": "Секция авторизации"
-//             }
-//           ]
-//         },
-//         {
-//           "kind": "class",
-//           "name": "UiFooter",
-//           "tagName": "ui-footer",
-//           "customElement": true,
-//           "description": "Подвал страницы",
-//           "attributes": [
-//             {
-//               "name": "socialLinks",
-//               "type": { "text": "Array<{name: string, url: string, icon: string}>" },
-//               "description": "Ссылки на соцсети"
-//             }
-//           ],
-//           "slots": [
-//             {
-//               "name": "actions-section",
-//               "description": "Секция с действиями"
-//             }
-//           ]
-//         }
-//       ]
-//     }
-//   ],
-//   "schemaVersion": "1.0.0"
-// }
+{
+  "version": "1.0.0",
+  "modules": [
+    {
+      "kind": "javascript-module",
+      "path": "dist/components.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "name": "UiButton",
+          "tagName": "ui-button",
+          "customElement": true,
+          "description": "Кнопка пользовательского интерфейса",
+          "attributes": [
+            {
+              "name": "primary",
+              "type": { "text": "boolean" },
+              "default": "false",
+              "description": "Основной стиль кнопки"
+            },
+            {
+              "name": "size",
+              "type": { "text": "small | medium | large"},
+              "default": "'medium'",
+              "description": "Размер кнопки"
+            },
+            {
+              "name": "label",
+              "type": { "text": "string" },
+              "description": "Текст кнопки",
+              "required": true
+            }
+          ],
+          "events": [
+            {
+              "name": "click",
+              "description": "Событие клика по кнопке"
+            }
+          ],
+          "slots": [
+            {
+              "name": "",
+              "description": "Контент кнопки (альтернатива атрибуту label)"
+            }
+          ]
+        },
+        {
+          "kind": "class",
+          "name": "UiCard",
+          "tagName": "ui-card",
+          "customElement": true,
+          "description": "Карточка для отображения контента",
+          "attributes": [
+            {
+              "name": "header",
+              "type": { "text": "string" },
+              "description": "Заголовок карточки"
+            },
+            {
+              "name": "imageUrl",
+              "type": { "text": "string" },
+              "description": "URL изображения для карточки"
+            },
+            {
+              "name": "hoverable",
+              "type": { "text": "boolean" },
+              "default": "false",
+              "description": "Эффект при наведении"
+            }
+          ],
+          "slots": [
+            {
+              "name": "",
+              "description": "Основной контент карточки"
+            },
+            {
+              "name": "actions",
+              "description": "Кнопки действий в карточке"
+            }
+          ]
+        },
+        {
+          "kind": "class",
+          "name": "UiInput",
+          "tagName": "ui-input",
+          "customElement": true,
+          "description": "Поле ввода",
+          "attributes": [
+            {
+              "name": "type",
+              "type": { "text": "'text' | 'password' | 'email' | 'number'" },
+              "default": "'text'",
+              "description": "Тип поля ввода"
+            },
+            {
+              "name": "value",
+              "type": { "text": "string" },
+              "description": "Значение поля"
+            },
+            {
+              "name": "placeholder",
+              "type": { "text": "string" },
+              "description": "Подсказка в поле"
+            },
+            {
+              "name": "disabled",
+              "type": { "text": "boolean" },
+              "default": "false",
+              "description": "Отключено ли поле"
+            }
+          ],
+          "events": [
+            {
+              "name": "change",
+              "description": "Событие изменения значения"
+            }
+          ]
+        },
+        {
+          "kind": "class",
+          "name": "UiHeader",
+          "tagName": "ui-header",
+          "customElement": true,
+          "description": "Шапка страницы",
+          "slots": [
+            {
+              "name": "logo-section",
+              "description": "Секция с логотипом"
+            },
+            {
+              "name": "auth-section",
+              "description": "Секция авторизации"
+            }
+          ]
+        },
+        {
+          "kind": "class",
+          "name": "UiFooter",
+          "tagName": "ui-footer",
+          "customElement": true,
+          "description": "Подвал страницы",
+          "attributes": [
+            {
+              "name": "socialLinks",
+              "type": { "text": "Array<{name: string, url: string, icon: string}>" },
+              "description": "Ссылки на соцсети"
+            }
+          ],
+          "slots": [
+            {
+              "name": "actions-section",
+              "description": "Секция с действиями"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "schemaVersion": "1.0.0"
+}
