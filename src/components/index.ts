@@ -1,6 +1,3 @@
-
-import "reflect-metadata"; // Добавьте в самый верх вашего главного файла
-
 import { UiButton } from "./ui-button/ui-button";
 import { UiCard } from "./ui-card/ui-card";
 import { UiFooter } from "./ui-footer/ui-footer";
