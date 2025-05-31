@@ -1,9 +1,7 @@
-
 import React, { forwardRef } from 'react';
 
-interface UiHeaderProps {
+interface UiHeaderProps extends React.HTMLAttributes<HTMLElement> {
   children?: React.ReactNode;
-  [key: string]: any;
 }
 
 declare global {
@@ -12,16 +10,16 @@ declare global {
       'ui-header': React.DetailedHTMLProps<
         React.HTMLAttributes<HTMLElement>,
         HTMLElement
-      > & {
-      };
+      >
     }
   }
 }
 
 export const ReactUiHeader = forwardRef<HTMLElement, UiHeaderProps>(
-  ({ children, ...props }, ref) => {
+  ({  children, ...props }, ref) => {
+    
     return (
-      <ui-header 
+      <ui-header
         ref={ref}
         {...props}
       >
@@ -31,4 +29,5 @@ export const ReactUiHeader = forwardRef<HTMLElement, UiHeaderProps>(
   }
 );
 
-ReactUiHeader.displayName = 'UiHeader';
+ReactUiHeader.displayName = 'ReactUiHeader';
+

@@ -1,10 +1,7 @@
-
 import React, { forwardRef } from 'react';
 
-interface UiFooterProps {
-  socialLinks?: Array<{name: string, url: string, icon: string}>;
+interface UiFooterProps extends React.HTMLAttributes<HTMLElement> {
   children?: React.ReactNode;
-  [key: string]: any;
 }
 
 declare global {
@@ -13,25 +10,22 @@ declare global {
       'ui-footer': React.DetailedHTMLProps<
         React.HTMLAttributes<HTMLElement>,
         HTMLElement
-      > & {
-        socialLinks?: Array<{name: string, url: string, icon: string}>;
-      };
+      >;
     }
   }
 }
 
 export const ReactUiFooter = forwardRef<HTMLElement, UiFooterProps>(
-  ({ socialLinks, children, ...props }, ref) => {
+  ({ children, ...props }, ref) => {
+
     return (
-      <ui-footer 
+      <ui-footer
         ref={ref}
-        {...props}
-        socialLinks={ socialLinks }
-      >
+        {...props}>
         {children}
       </ui-footer>
     );
   }
 );
 
-ReactUiFooter.displayName = 'UiFooter';
+ReactUiFooter.displayName = 'ReactUiFooter';

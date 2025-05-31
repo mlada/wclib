@@ -1,10 +1,8 @@
-
-import { Directive, ElementRef, ViewChild } from '@angular/core';
+import { Directive } from '@angular/core';
 
 @Directive({
-  selector: 'ui-header'
+  selector: 'ui-header',
+  standalone: true
 })
 export class UiHeaderDirective {
-  @ViewChild("el") private el: ElementRef;
-
 }

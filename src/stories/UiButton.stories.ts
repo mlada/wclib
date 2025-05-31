@@ -1,17 +1,55 @@
-
 import type { Meta, StoryObj } from '@storybook/web-components';
 import { html } from 'lit';
 import { ButtonSize, ButtonType, UiButton } from '../components/ui-button/ui-button';
 
-// 1. Определяем тип для пропсов компонента, которые будут использоваться в Storybook
+// 1. Define component props type for Storybook
 type StoryButtonProps = {
   type?: ButtonType;
   size?: ButtonSize;
   label?: string;
   onClick?: (event: Event) => void;
 };
- 
 
+/** 
+ * ### Angular Usage
+ * ```typescript
+ * import { UiButtonDirective } from 'your-library';
+ * 
+ * @NgModule({
+ *   declarations: [UiButtonDirective],
+ * })
+ * export class YourModule {}
+ * 
+ * // In template:
+ * <ui-button 
+ *   [type]="'primary'" 
+ *   size="medium" 
+ *   label="Click me"
+ *   (click)="handleClick($event)"
+ * ></ui-button>
+ * 
+ * // In component:
+ * handleClick(event: Event) {
+ *   console.log('Button clicked', event);
+ * }
+ * ```
+ * 
+ * ### React Usage
+ * ```jsx
+ * import { ReactUiButton } from 'your-library';
+ * 
+ * function App() {
+ *   return (
+ *     <ReactUiButton 
+ *       primary 
+ *       size="large" 
+ *       label="Submit" 
+ *       onClick={() => console.log('Clicked')}
+ *     />
+ *   );
+ * }
+ * ```
+ */
 const meta: Meta<StoryButtonProps> = {
   title: 'Components/UI Button',
   tags: ['autodocs'],
@@ -19,7 +57,7 @@ const meta: Meta<StoryButtonProps> = {
     type: {
       control: 'radio',
       options: ['primary', 'light', 'secondary'],
-      description: 'Определяет тип кнопки',
+      description: 'Button type variant',
       table: {
         defaultValue: { summary: 'primary' },
       },
@@ -27,18 +65,18 @@ const meta: Meta<StoryButtonProps> = {
     size: {
       control: 'radio',
       options: ['small', 'medium', 'large'],
-      description: 'Определяет размер кнопки',
+      description: 'Button size',
       table: {
         defaultValue: { summary: 'medium' },
       },
     },
     label: {
       control: 'text',
-      description: 'Название кнопки',
+      description: 'Button text content',
     },
     onClick: {
       action: 'clicked',
-      description: 'Событие по клику',
+      description: 'Click event handler',
     },
   },
   render: (args) => html`
@@ -53,7 +91,6 @@ const meta: Meta<StoryButtonProps> = {
 
 export default meta;
 
-// 3. Используем StoryObj с нашим типом StoryButtonProps
 type Story = StoryObj<StoryButtonProps>;
 
 export const Primary: Story = {

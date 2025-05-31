@@ -1,12 +1,16 @@
-
 import React, { forwardRef } from 'react';
+import PropTypes from 'prop-types';
 
-interface UiCardProps {
-  header?: string;
+interface UiCardProps extends React.HTMLAttributes<HTMLElement> {
+  title?: string;
+  description?: string;
+  size?: 'small' | 'medium' | 'large';
   imageUrl?: string;
+  imageAlt?: string;
   hoverable?: boolean;
+  type?: 'vertical' | 'horizontal';
+  onClick?: (event: React.MouseEvent) => void;
   children?: React.ReactNode;
-  [key: string]: any;
 }
 
 declare global {
@@ -16,23 +20,32 @@ declare global {
         React.HTMLAttributes<HTMLElement>,
         HTMLElement
       > & {
-        header?: string;
+        title?: string;
+        description?: string;
+        size?: 'small' | 'medium' | 'large';
         imageUrl?: string;
+        imageAlt?: string;
         hoverable?: boolean;
+        type?: 'vertical' | 'horizontal';
       };
     }
   }
 }
 
 export const ReactUiCard = forwardRef<HTMLElement, UiCardProps>(
-  ({ header, imageUrl, hoverable, children, ...props }, ref) => {
+  ({ title, description, size, imageUrl, imageAlt, hoverable, type, onClick, children, ...props }, ref) => {
     return (
-      <ui-card 
+      <ui-card
         ref={ref}
+        title={title}
+        description={description}
+        size={size}
+        image-url={imageUrl}
+        image-alt={imageAlt}
+        hoverable={hoverable}
+        type={type}
+        onClick={onClick}
         {...props}
-        header={ header }
-        imageUrl={ imageUrl }
-        hoverable={ hoverable }
       >
         {children}
       </ui-card>
@@ -40,4 +53,22 @@ export const ReactUiCard = forwardRef<HTMLElement, UiCardProps>(
   }
 );
 
-ReactUiCard.displayName = 'UiCard';
+ReactUiCard.displayName = 'ReactUiCard';
+
+ReactUiCard.propTypes = {
+  title: PropTypes.string,
+  description: PropTypes.string,
+  size: PropTypes.oneOf(['small', 'medium', 'large']),
+  imageUrl: PropTypes.string,
+  imageAlt: PropTypes.string,
+  hoverable: PropTypes.bool,
+  type: PropTypes.oneOf(['vertical', 'horizontal']),
+  onClick: PropTypes.func,
+  children: PropTypes.any,
+};
+
+ReactUiCard.defaultProps = {
+  size: 'medium',
+  hoverable: false,
+  type: 'vertical',
+};

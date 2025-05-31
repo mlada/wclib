@@ -1,33 +1,38 @@
-import { Directive, ElementRef, Input } from "@angular/core";
+import { Directive, ElementRef, Input, Output, EventEmitter } from "@angular/core";
 
 interface UiButton extends HTMLElement {
-  primary?: boolean;
-  size?: "small" | "medium" | "large";
+  type?: 'primary' | 'light' | 'secondary';
+  size?: 'small' | 'medium' | 'large';
   label?: string;
+  onClick?: (event: Event) => void;
 }
 
 @Directive({
   selector: "ui-button",
+  standalone: true
 })
 export class UiButtonDirective {
-  constructor(private elementRef: ElementRef) {}
-
-  private get button(): UiButton {
-    return this.elementRef.nativeElement;
+  constructor(private elementRef: ElementRef<UiButton>) {
+    this.elementRef.nativeElement.addEventListener('click', (event) => {
+      this.click.emit(event);
+    });
   }
 
   @Input()
-  set primary(value: boolean | null) {
-    this.button.primary = value ?? undefined;
+  set type(value: 'primary' | 'light' | 'secondary' | null) {
+    this.elementRef.nativeElement.type = value ?? 'primary';
   }
 
   @Input()
-  set size(value: "small" | "medium" | "large" | null) {
-    this.button.size = value ?? 'medium';
+  set size(value: 'small' | 'medium' | 'large' | null) {
+    this.elementRef.nativeElement.size = value ?? 'medium';
   }
 
   @Input()
   set label(value: string | null) {
-    this.button.label = value ?? '';
+    this.elementRef.nativeElement.label = value ?? '';
   }
+
+  @Output() 
+  click = new EventEmitter<Event>();
 }

@@ -2,6 +2,67 @@ import type { Meta, StoryObj } from '@storybook/web-components';
 import { html } from 'lit';
 import { UiCard } from '../components';
 
+/**
+ * A versatile card component with multiple layout options and customization features.
+ * 
+ * ### Angular Usage
+ * ```typescript
+ * import { UiCardDirective } from 'your-library';
+ * 
+ * @NgModule({
+ *   declarations: [UiCardDirective],
+ * })
+ * export class YourModule {}
+ * 
+ * // In template:
+ * <ui-card 
+ *   [title]="'Card Title'"
+ *   [description]="'Card description'"
+ *   [size]="'medium'"
+ *   [imageUrl]="'path/to/image.jpg'"
+ *   [hoverable]="true"
+ * >
+ *   <div slot="content">Additional content</div>
+ *   <div slot="footer">
+ *     <button (click)="handleButtonClick($event)">Action</button>
+ *   </div>
+ * </ui-card>
+ * 
+ * 
+ * handleButtonClick(event: Event) {
+ *   event.stopPropagation();
+ *   console.log('Button clicked', event);
+ * }
+ * ```
+ * 
+ * ### React Usage
+ * ```jsx
+ * import { ReactUiCard } from 'your-library';
+ * 
+ * function App() {
+ * 
+ *   return (
+ *     <ReactUiCard
+ *       title="Card Title"
+ *       description="Card description"
+ *       size="medium"
+ *       imageUrl="path/to/image.jpg"
+ *       hoverable
+ *     >
+ *       <div slot="content">Additional content</div>
+ *       <div slot="footer">
+ *         <button onClick={(e) => {
+ *           e.stopPropagation();
+ *           console.log('Button clicked');
+ *         }}>
+ *           Action
+ *         </button>
+ *       </div>
+ *     </ReactUiCard>
+ *   );
+ * }
+ * ```
+ */
 const meta: Meta<UiCard> = {
   title: 'Components/UI Card',
   component: 'ui-card',
@@ -10,38 +71,42 @@ const meta: Meta<UiCard> = {
     size: {
       control: 'select',
       options: ['small', 'medium', 'large'],
-      description: 'Размер карточки',
+      description: 'Card size variant',
       table: {
         defaultValue: { summary: 'large' },
       },
     },
     title: {
       control: 'text',
-      description: 'Заголовок карточки',
+      description: 'Card header text',
     },
     description: {
       control: 'text',
-      description: 'Описание карточки',
+      description: 'Card description text',
     },
     imageUrl: {
       control: 'text',
-      description: 'URL изображения',
+      description: 'Image URL for card',
     },
     imageAlt: {
       control: 'text',
-      description: 'Альтернативный текст изображения',
+      description: 'Alt text for card image',
     },
     hoverable: {
       control: 'boolean',
-      description: 'Эффект при наведении',
+      description: 'Enable hover effects',
       table: {
         defaultValue: { summary: 'false' },
       },
     },
+    onclick: {
+      action: 'clicked',
+      description: 'Card click event handler',
+    },
   },
   args: {
-    title: 'Заголовок карточки',
-    description: 'Это описание карточки. Оно может быть длиннее и содержать больше текста.',
+    title: 'Card Title',
+    description: 'This is a card description. It can contain more detailed text content.',
     size: 'medium',
     hoverable: true,
   },
@@ -53,6 +118,7 @@ const meta: Meta<UiCard> = {
       image-url=${args.imageUrl}
       image-alt=${args.imageAlt}
       ?hoverable=${args.hoverable}
+      @click=${args.onclick}
     ></ui-card>
   `,
 };
@@ -60,7 +126,7 @@ const meta: Meta<UiCard> = {
 export default meta;
 type Story = StoryObj<UiCard>;
 
-// Базовые варианты по размерам
+// Size variants
 export const Small: Story = {
   args: {
     size: 'small',
@@ -82,7 +148,7 @@ export const Large: Story = {
   },
 };
 
-// Специальные варианты
+// Special variants
 export const FullWidthCard: Story = {
   render: (args) => html`
     <style>
@@ -93,13 +159,17 @@ export const FullWidthCard: Story = {
     </style>
     <ui-card
       class="full-width-card"
-      title="Полноэкранная карточка"
-      description="Эта карточка растягивается на всю доступную ширину экрана"
+      title="Full Width Card"
+      description="This card stretches to full available width"
       image-url="https://avatars.mds.yandex.net/get-altay/3986639/2a0000017acd45ba71bd40ef4ad1033fff0c/XXXL"
       hoverable
+      @click=${args.onclick}
     >
       <div slot="footer">
-        <button>Основное действие</button>
+        <button @click=${(e: Event) => {
+          e.stopPropagation();
+          console.log('Button clicked');
+        }}>Primary Action</button>
       </div>
     </ui-card>
   `,
@@ -111,20 +181,21 @@ export const FullWidthCard: Story = {
 export const Horizontal: Story = {
   render: (args) => html` 
     <ui-card
-    size='medium'
-    type='horizontal'
-    title='Создание сайтов с использованием современных технологий'
-       description="Профессионализм и качество в каждой детали"
-     >
+      size='medium'
+      type='horizontal'
+      title='Modern Website Development'
+      description="Professionalism and quality in every detail"
+      @click=${args.onclick}
+    >
       <div slot="content">
-        <p>Мы проектируем, разрабатываем и запускаем сайты, используя HTML, CSS, JavaScript и CMS. Уделяем внимание адаптивному дизайну, SEO и безопасности.</p>
+        <p>We design, develop and launch websites using HTML, CSS, JavaScript and CMS. We focus on responsive design, SEO and security.</p>
       </div>
     </ui-card>
   `,
 };
 
 export const ThreeSmallCardsInRow: Story = {
-  render: () => html`
+  render: (args) => html`
     <style>
       .cards-container {
         display: grid;
@@ -138,32 +209,39 @@ export const ThreeSmallCardsInRow: Story = {
     <div class="cards-container">
       <ui-card
         size="small"
-        title="Карточка 1"
-        description="Первая маленькая карточка в ряду"
+        title="Card 1"
+        description="First small card in row"
         image-url="https://avatars.mds.yandex.net/get-altay/3986639/2a0000017acd45ba71bd40ef4ad1033fff0c/XXXL"
         hoverable
+        @click=${args.onclick}
       ></ui-card>
       
       <ui-card
         size="small"
-        title="Карточка 2"
-        description="Вторая карточка с более длинным описанием"
+        title="Card 2"
+        description="Second card with longer description"
         image-url="https://avatars.mds.yandex.net/get-altay/3986639/2a0000017acd45ba71bd40ef4ad1033fff0c/XXXL"
         hoverable
+        @click=${args.onclick}
       ></ui-card>
       
       <ui-card
         size="small"
-        title="Карточка 3"
-        description="Третья карточка в ряду"
+        title="Card 3"
+        description="Third card in row"
         image-url="https://avatars.mds.yandex.net/get-altay/3986639/2a0000017acd45ba71bd40ef4ad1033fff0c/XXXL"
         hoverable
+        @click=${args.onclick}
       >
         <div slot="footer">
           <ui-button
             type='secondary'
             size='small'
-            label='Перейти' 
+            label='Go to'
+            @click=${(e: Event) => {
+              e.stopPropagation();
+              console.log('Button clicked');
+            }}
           ></ui-button>
         </div>
       </ui-card>
@@ -172,60 +250,4 @@ export const ThreeSmallCardsInRow: Story = {
   parameters: {
     layout: 'fullscreen',
   },
-};
-
-export const CardsWithDifferentContent: Story = {
-  render: () => html`
-    <style>
-      .cards-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-        gap: 32px;
-        padding: 24px;
-      }
-    </style>
-    <div class="cards-grid">
-      <ui-card
-        size="medium"
-        title="Карточка с изображением"
-        image-url="https://avatars.mds.yandex.net/get-altay/3986639/2a0000017acd45ba71bd40ef4ad1033fff0c/XXXL"
-        hoverable
-      >
-        <div slot="content">
-          <p>Дополнительный контент под описанием</p>
-        </div>
-      </ui-card>
-      
-      <ui-card
-        size="medium"
-        title="Текстовая карточка"
-        description="Эта карточка не содержит изображения, только текстовый контент"
-        hoverable
-      >
-        <div slot="footer">
-          <ui-button
-            type='primary'
-            size='small'
-            label='Действие 1' 
-          ></ui-button>
-          <ui-button
-            type='secondary'
-            size='small'
-            label='Действие 2' 
-          ></ui-button>
-        </div>
-      </ui-card>
-      
-      <ui-card
-        size="medium"
-        title="Особенная карточка"
-        description="Специальное предложение"
-        hoverable
-      >
-        <div slot="content" style="color: var(--theme-color, #ff5722); font-weight: bold;">
-          ⭐ Эксклюзивный контент ⭐
-        </div>
-      </ui-card>
-    </div>
-  `,
 };
