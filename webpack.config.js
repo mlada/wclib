@@ -10,6 +10,7 @@ module.exports = {
     components: "./src/components/index.ts",
     angular: "./src/angular/index.ts",
     react: "./src/react/index.ts",
+    styles: "./src/styles/main.css", 
   },
   output: {
     filename: "[name].bundle.js",
@@ -48,6 +49,10 @@ module.exports = {
       },
       {
         test: /\.css$/,
+        include: [
+          path.resolve(__dirname, "src/styles"),
+          path.resolve(__dirname, "src/components")
+        ],
         use: [
           MiniCssExtractPlugin.loader,
           {
@@ -85,19 +90,19 @@ module.exports = {
       filename: "[name].[contenthash].css",
       chunkFilename: "[id].[contenthash].css",
     }),
-    new BundleAnalyzerPlugin({
-      analyzerMode: 'server',
-      analyzerHost: '127.0.0.1',
-      analyzerPort: 8888,
-      reportFilename: 'report.html',
-      defaultSizes: 'parsed',
-      openAnalyzer: true,
-      generateStatsFile: true,
-      statsFilename: 'stats.json',
-      statsOptions: null,
-      excludeAssets: null,
-      logLevel: 'info'
-    })
+    // new BundleAnalyzerPlugin({
+    //   analyzerMode: 'server',
+    //   analyzerHost: '127.0.0.1',
+    //   analyzerPort: 8888,
+    //   reportFilename: 'report.html',
+    //   defaultSizes: 'parsed',
+    //   openAnalyzer: true,
+    //   generateStatsFile: true,
+    //   statsFilename: 'stats.json',
+    //   statsOptions: null,
+    //   excludeAssets: null,
+    //   logLevel: 'info'
+    // })
   ],
   devServer: {
     static: {
