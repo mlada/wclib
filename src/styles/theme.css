@@ -1,38 +1,78 @@
 :root {
-    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    --border-radius: 8px;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --border-radius: 8px;
 
-    /* Кнопки */
+  /* Цвет темы */
+  --theme-main-color: rgb(255, 85, 0);
+  --theme-main-lighter-color: rgb(255, 119, 82);
+  --theme-text-color: #333333;
+  --theme-text-light-color: #fdfdfd;
 
-    /* Основные переменные цвета */
-    --ui-button-primary-color: #1ea7fd;
-    --ui-button-primary-hover-color: rgb(16, 162, 253);
-    --ui-button-secondary-text-color: #333333;
-    --ui-button-secondary-border-color: rgba(0, 0, 0, 0.15);
-    --ui-button-secondary-hover-border-color: rgba(0, 0, 0, 0.25);
 
-    /* Размеры */
-    --ui-button-small-font-size: 12px;
-    --ui-button-medium-font-size: 14px;
-    --ui-button-large-font-size: 16px;
-    --ui-button-small-padding: 10px 16px;
-    --ui-button-medium-padding: 11px 20px;
-    --ui-button-large-padding: 12px 24px;
-    --ui-button-border-radius: 4px;
+  --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --text-small: 0.875rem;
+  --text-medium: 1rem;
+  --text-large: 1.25rem;
+  --text-x-large: 1.5rem;
+  --text-h1: 2.25rem;
+  --text-h2: 2rem;
+  --text-h3: 1.875rem;
 
-    /* Карточки */
 
-    /* Цвета */
-    --ui-card-border-color: #e1e1e1;
-    --ui-card-shadow-color: rgba(0, 0, 0, 0.1);
-    --ui-card-bg-color: #ffffff;
-    
-    /* Размеры */
-    --ui-card-border-radius: 8px;
-    --ui-card-padding: 1rem;
-    --ui-card-gap: 0.5rem;
-    
-    /* Эффекты */
-    --ui-card-shadow-hover: 0 4px 8px var(--ui-card-shadow-color);
-    --ui-card-transition: box-shadow 0.3s ease;
+  /* Кнопки цвета */
+  --ui-button-primary-color: var(--theme-main-color);
+  --ui-button-primary-hover-color: var(--theme-main-lighter-color);
+  --ui-button-primary-text-color: var(--theme-text-light-color);
+  --ui-button-light-color: var(--theme-text-light-color);
+  --ui-button-light-hover-color: #ffffff;
+  --ui-button-light-text-color: var(--theme-main-color);
+  --ui-button-secondary-text-color: var(--theme-text-color);
+  --ui-button-secondary-border-color: var(--theme-main-color);
+  --ui-button-secondary-hover-border-color: var(--theme-main-lighter-color);
+
+  /* Размеры */
+  --ui-button-small-font-size: var(--text-small);
+  --ui-button-medium-font-size: var(--text-medium);
+  --ui-button-large-font-size: var(--text-large);
+
+  --ui-button-small-padding: 10px 16px;
+  --ui-button-medium-padding: 11px 20px;
+  --ui-button-large-padding: 12px 24px;
+  --ui-button-border-radius: 4px;
+
+  /* Карточки */
+
+  /* Цвета */
+  --ui-card-border-color: var(--theme-text-light-color);
+  --ui-card-shadow-color: rgba(0, 0, 0, 0.1);
+  --ui-card-bg-color: #ffffff;
+
+  /* Размеры */
+  --ui-card-border-radius: 8px;
+  --ui-card-padding: 1rem;
+  --ui-card-gap: 0.5rem;
+
+  /* Эффекты */
+  --ui-card-shadow-hover: 0 4px 8px var(--ui-card-shadow-color);
+  --ui-card-transition: box-shadow 0.3s ease;
+
+  body {
+    font-family: var(--font-family);
   }
+
+  h1 {
+    font-size: var(--text-h1);
+    text-align: center;
+  }
+
+  h2 {
+    font-size: var(--text-h2);
+    text-align: center;
+  }
+
+  h3 {
+    font-size: var(--text-h3);
+    text-align: center;
+  }
+
+}

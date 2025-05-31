@@ -2,27 +2,34 @@
 import { css } from "lit";
 
 export const styles = css`
-  :host {
+ :host {
     display: block;
+    position: relative;
+    z-index: 100;
   }
 
   .ui-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
-    background-color: #ffffff;
+    position: sticky;
+    top: 0;
+    background-color: white;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+    z-index: 100;
+    width: 100%;
   }
 
-  .logo-section {
+  .ui-header.scrolled {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .header-content {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    justify-content: space-between;
+    height: var(--header-height, 64px);
+    padding: 0 var(--header-padding, 24px);
+    max-width: var(--header-max-width, 1440px);
+    margin: 0 auto;
   }
-
-  .auth-section {
-    display: flex;
-    gap: 1rem;
-  }
+ 
 `;

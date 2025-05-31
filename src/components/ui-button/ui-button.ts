@@ -1,16 +1,17 @@
-import { LitElement, html, css, CSSResult } from "lit";
+import { LitElement, html, CSSResult } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import { classMap } from "lit/directives/class-map.js";
 import { styles } from "./ui-button.styles";
 
-type ButtonSize = "small" | "medium" | "large";
+export type ButtonType = "primary" | "light" | "secondary";
+export type ButtonSize = "small" | "medium" | "large";
 
 @customElement("ui-button")
 export class UiButton extends LitElement {
   static styles: CSSResult = styles;
 
-  @property({ type: Boolean })
-  primary: boolean = false;
+  @property({ type: String })
+  type: ButtonType = "primary";
 
   @property({ type: String })
   size: ButtonSize = "medium";
@@ -20,10 +21,9 @@ export class UiButton extends LitElement {
 
   render() {
     const classes = {
-      "ui-button": true,
-      "ui-button--primary": this.primary,
-      "ui-button--secondary": !this.primary,
-      [`ui-button--${this.size}`]: true,
+      "ui-button": true,  // Базовый класс всегда добавляется
+      ...(this.type && { [`ui-button--${this.type}`]: true }),   
+      ...(this.size && { [`ui-button--${this.size}`]: true }),   
     };
 
     return html`

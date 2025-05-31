@@ -12,12 +12,21 @@ export const styles = css`
   }
 
   .ui-button--primary {
-    color: white;
+    color: var(--ui-button-primary-text-color);
     background-color: var(--ui-button-primary-color);
   }
 
   .ui-button--primary:hover {
     background-color: var(--ui-button-primary-hover-color);
+  }
+
+  .ui-button--light {
+    color: var(--ui-button-light-text-color);
+    background-color: var(--ui-button-light-color);
+  }
+
+  .ui-button--light:hover {
+    background-color: var(--ui-button-light-hover-color);
   }
 
   .ui-button--secondary {

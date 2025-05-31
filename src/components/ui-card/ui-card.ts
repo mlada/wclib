@@ -1,16 +1,28 @@
-import { LitElement, html, CSSResult } from "lit";
-import { customElement, property } from "lit/decorators.js";
+import { LitElement, html, CSSResult } from 'lit';
+import { customElement, property } from 'lit/decorators.js';
 import { styles } from "./ui-card.styles";
+type CardSize =  'xs' | 'small' | 'medium' | 'large';
+type CardType = 'vertical' | 'horizontal' | 'large';
+type CardColor = 'light' | 'dark';
 
-@customElement("ui-card")
+@customElement('ui-card')
 export class UiCard extends LitElement {
   static styles: CSSResult = styles;
 
   @property({ type: String })
-  accessor header: string = "";
+  accessor title: string = "";
 
   @property({ type: String })
-  accessor icon: string = "";
+  accessor description: string = "";
+
+  @property({ type: String })
+  accessor size: CardSize = "large";
+
+  @property({ type: String })
+  accessor type: CardType = "vertical";
+  
+  @property({ type: String })
+  accessor color: CardColor = "dark";
 
   @property({ type: String, attribute: "image-url" })
   accessor imageUrl: string = "";
@@ -23,30 +35,22 @@ export class UiCard extends LitElement {
 
   render() {
     return html`
-      <div class="ui-card ${this.hoverable ? "hoverable" : ""}">
-        ${this.header || this.icon
-          ? html` <div class="card-header">
-              ${this.icon
-                ? html`<span class="header-icon"
-                    ><img src=${this.icon} alt=${this.header || "Card icon"}
-                  /></span>`
-                : ""}
-              ${this.header ? html`<h3>${this.header}</h3>` : ""}
-            </div>`
-          : ""}
-        ${this.imageUrl
-          ? html`<div class="card-image">
-              <img src=${this.imageUrl} alt=${this.imageAlt || "Card image"} />
-            </div>`
-          : ""}
+      <div class="card card--${this.size} card--${this.type} ${this.hoverable ? 'hoverable' : ''}">            
+        <div class="card-content card-content--${this.color}">
+          ${this.title ? html`<p class="card-title">${this.title}</p>` : ''}
+          ${this.description ? html`<p class="card-description">${this.description}</p>` : ''}
 
-        <div class="card-content">
-          <slot></slot>
         </div>
-
-        <div class="card-actions">
-          <slot name="actions"></slot>
-        </div>
+        <slot name="content"></slot>
+        ${this.imageUrl ? html`
+          <img 
+            class="card-image"
+            src=${this.imageUrl} 
+            alt=${this.imageAlt || this.title}
+            loading="lazy"
+          >
+        ` : ''}
+        <slot name="footer"></slot>
       </div>
     `;
   }

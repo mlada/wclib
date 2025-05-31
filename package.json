@@ -13,6 +13,7 @@
     "dist"
   ],
   "scripts": {
+    "install": "npm i",
     "start": "webpack serve --mode development",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
