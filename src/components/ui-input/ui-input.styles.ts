@@ -17,7 +17,7 @@ export const styles = css`
       input {
         padding: 0.5rem 1rem;
         border: 1px solid #ccc;
-        border-radius: 4px;
+        border-radius: calc(var(--border-radius)/2);
         font-size: 1rem;
         width: 100%;
         box-sizing: border-box;

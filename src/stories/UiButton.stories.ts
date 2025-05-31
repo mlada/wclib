@@ -83,7 +83,7 @@ export const Light: Story = {
       <div style="
         background-color: var(--theme-main-color, orange);
         padding: 20px;
-        border-radius: 8px;
+        border-radius: var(--border-radius);
         display: block;
         width: 80%;
         height: 100%;

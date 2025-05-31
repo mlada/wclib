@@ -39,7 +39,7 @@ export const styles = css`
       padding: 0.5rem 1rem;
       cursor: pointer;
       transition: all 0.2s ease;
-      border-radius: 4px;
+      border-radius: calc(var(--border-radius)/2);
     }
 
     .menu-item:hover {

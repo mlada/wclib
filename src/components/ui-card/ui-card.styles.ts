@@ -2,11 +2,17 @@
 import { css } from "lit";
 
 export const styles = css`
-   .card {
+  :host {
+    margin: 0 auto;
+  }
+  
+  .card {
+      max-width: 1280px;
       overflow: hidden;      
       height: 100%;
       display: flex;
       flex-direction: column;
+      margin: 0 auto;
     }
 
     .card--small {
@@ -29,7 +35,7 @@ export const styles = css`
     .card.hoverable {
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       transition: all 0.3s ease;
-      border-radius: 8px;
+      border-radius: var(--border-radius);
       cursor: pointer;
     }
 

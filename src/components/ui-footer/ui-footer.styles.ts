@@ -10,6 +10,7 @@ export const styles = css`
   
   .footer-content {
     max-width: 1280px;
+    margin: 0 auto;
   }      
   .copyright{
     padding-top: 18px;
