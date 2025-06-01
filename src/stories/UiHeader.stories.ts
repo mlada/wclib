@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/web-components';
 import { html } from 'lit';
-import { UiHeader } from '../components';
-import { MenuElement } from '../components/ui-menu/ui-menu';
+import { MenuElement, UiHeader } from '../components';
 
 const elements: MenuElement[] = [
   { name: 'Услуги', url: '/services' },

@@ -1,16 +1,9 @@
 
-import { LitElement, html, css, CSSResult } from 'lit';
+import { LitElement, html, CSSResult } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { styles } from './ui-menu.styles';
+import { ElementSize, Orientation, MenuElement } from '../types';
 
-
-export type MenuSize = "small" | "medium" | "large";
-export type MenuType = "vertical" | "horizontal";
-export type MenuElement = {
-  id?: string;
-  name: string;
-  url: string; 
-}
 
 
 @customElement('ui-menu')
@@ -21,21 +14,21 @@ export class UiMenu extends LitElement {
   accessor elements: MenuElement[] = [];
 
   @property({ type: String })
-  accessor type: string = 'horizontal';
+  accessor type: Orientation = 'horizontal';
 
   @property({ type: String })
-  accessor size: string = 'medium';
+  accessor size: ElementSize = 'medium';
 
   render() {
     return html`
       <ul class="menu ${this.type} ${this.size}">
         ${this.elements.map(
-          (element) => html`
+      (element) => html`
             <li class="menu-item">
               <a href=${element.url}>${element.name}</a>
             </li>
           `
-        )}
+    )}
       </ul>
     `;
   }

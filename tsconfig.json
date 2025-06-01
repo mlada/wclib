@@ -3,11 +3,18 @@
     "experimentalDecorators": true,
     "target": "ES2022",
     "module": "ESNext",
-    "lib": ["ES6", "DOM", "ES2015"],
+    "lib": [
+      "ES6",
+      "DOM",
+      "ES2015"
+    ],
     "moduleResolution": "node",
     "declaration": true,
     "outDir": "./dist",
-    "typeRoots": ["./node_modules/@types", "declaration.d.ts"],
+    "typeRoots": [
+      "./node_modules/@types",
+      "declaration.d.ts"
+    ],
     "allowSyntheticDefaultImports": true,
     "useDefineForClassFields": false,
     "skipLibCheck": true,
@@ -20,10 +27,17 @@
     "strictBindCallApply": true,
     "strictFunctionTypes": true,
     "esModuleInterop": true,
+    "allowImportingTsExtensions": true,
+    "noEmit": true,
   },
   "angularCompilerOptions": {
     "strictTemplates": false
   },
-  "include": ["src/**/*", "declaration.d.ts"],
-  "exclude": ["node_modules"]
+  "include": [
+    "src/**/*",
+    "declaration.d.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

@@ -1,10 +1,8 @@
 import { LitElement, html, CSSResult } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { styles } from "./ui-card.styles";
-type CardSize =  'xs' | 'small' | 'medium' | 'large';
-type CardType = 'vertical' | 'horizontal' | 'large';
-type CardColor = 'light' | 'dark';
-
+import { Orientation, ColorTheme, ElementSize } from '..';
+ 
 @customElement('ui-card')
 export class UiCard extends LitElement {
   static styles: CSSResult = styles;
@@ -16,13 +14,13 @@ export class UiCard extends LitElement {
   accessor description: string = "";
 
   @property({ type: String })
-  accessor size: CardSize = "large";
+  accessor size: ElementSize = "large";
 
   @property({ type: String })
-  accessor type: CardType = "vertical";
+  accessor type: Orientation = "vertical";
   
   @property({ type: String })
-  accessor color: CardColor = "dark";
+  accessor color: ColorTheme = "dark";
 
   @property({ type: String, attribute: "image-url" })
   accessor imageUrl: string = "";

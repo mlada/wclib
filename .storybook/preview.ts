@@ -1,7 +1,7 @@
-import { UiButton, UiCard, UiFooter, UiHeader } from "../src/components";
+import { UiButton, UiCard, UiFooter, UiHeader, UiMenu } from "../src/components";
 import type { Preview } from "@storybook/web-components";
-import "../src/styles/theme.css";
-
+import "../src/styles/main.css";
+ 
 // Явная регистрация веб-компонентов
 if (!customElements.get("ui-button")) {
   customElements.define("ui-button", UiButton);
@@ -10,11 +10,17 @@ if (!customElements.get("ui-button")) {
 if (!customElements.get("ui-card")) {
   customElements.define("ui-card", UiCard);
 }
+
+if (!customElements.get("ui-footer")) {
+  customElements.define("ui-footer", UiFooter);
+}
+
 if (!customElements.get("ui-header")) {
   customElements.define("ui-header", UiHeader);
 }
-if (!customElements.get("ui-footer")) {
-  customElements.define("ui-footer", UiFooter);
+
+if (!customElements.get("ui-menu")) {
+  customElements.define("ui-menu", UiMenu);
 }
 
 const preview: Preview = {

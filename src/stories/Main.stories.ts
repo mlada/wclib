@@ -1,12 +1,5 @@
 import { html } from "lit";
-import {
-  UiButton,
-  UiCard,
-  UiFooter,
-  UiHeader,
-  UiInput,
-} from "../components/index";
-import { MenuElement } from "../components/ui-menu/ui-menu";
+import { MenuElement } from "../components";
 
 const elements: MenuElement[] = [
   { name: "Услуги", url: "/" },

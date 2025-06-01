@@ -1,6 +1,6 @@
 
-import { LitElement, html, css, CSSResult } from 'lit';
-import { customElement, property } from 'lit/decorators.js';
+import { LitElement, html, CSSResult } from 'lit';
+import { customElement } from 'lit/decorators.js';
 import { styles } from './ui-header.styles';
 
 @customElement('ui-header')

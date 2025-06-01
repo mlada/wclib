@@ -2,19 +2,17 @@ import { LitElement, html, CSSResult } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import { classMap } from "lit/directives/class-map.js";
 import { styles } from "./ui-button.styles";
-
-export type ButtonType = "primary" | "light" | "secondary";
-export type ButtonSize = "small" | "medium" | "large";
+import { ElementSize, ButtonVariant } from "..";
 
 @customElement("ui-button")
 export class UiButton extends LitElement {
   static styles: CSSResult = styles;
 
   @property({ type: String })
-  type: ButtonType = "primary";
+  type: ButtonVariant = "primary";
 
   @property({ type: String })
-  size: ButtonSize = "medium";
+  size: ElementSize = "medium";
 
   @property({ type: String })
   label = "";

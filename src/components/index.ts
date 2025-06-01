@@ -5,7 +5,9 @@ import { UiHeader } from "./ui-header/ui-header";
 import { UiInput } from "./ui-input/ui-input";
 import { UiMenu } from "./ui-menu/ui-menu";
 
-export { UiButton, UiCard, UiFooter, UiHeader, UiInput };
+export { UiButton, UiCard, UiFooter, UiHeader, UiInput, UiMenu };
+
+export * from './types.ts';
 
 // Register all components
 if (!customElements.get("ui-button")) {
@@ -26,3 +28,4 @@ if (!customElements.get("ui-input")) {
 if (!customElements.get("ui-menu")) {
   customElements.define("ui-menu", UiMenu);
 }
+

@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/web-components';
 import { html } from 'lit';
-import { ButtonSize, ButtonType, UiButton } from '../components/ui-button/ui-button';
-
+import { ButtonVariant, ElementSize } from '../components';
+ 
 // 1. Define component props type for Storybook
 type StoryButtonProps = {
-  type?: ButtonType;
-  size?: ButtonSize;
+  type?: ButtonVariant;
+  size?: ElementSize;
   label?: string;
   onClick?: (event: Event) => void;
 };
