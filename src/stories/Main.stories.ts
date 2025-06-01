@@ -1,6 +1,97 @@
 import { html } from "lit";
 import { MenuElement } from "../../declaration";
- 
+// Контент для разных тем
+const themeContent = {
+  green: {
+    images: [
+      'https://i.pinimg.com/736x/6d/45/d8/6d45d8e8d278547145ec0fc17fb111f7.jpg',
+      'https://i.pinimg.com/originals/b7/3c/f2/b73cf208ebf2f343fc209e8b4e35a997.jpg',
+      'https://avatars.mds.yandex.net/i?id=259f4996d92232397be1a85c6be187df_l-4438614-images-thumbs&n=13',
+      'https://images.squarespace-cdn.com/content/v1/6340749ee514a116ad4f13a1/218e9cf6-dda9-458b-9bfb-99a95572b229/3501370-2.png'
+    ],
+    titles: [
+      'Комплексное озеленение интерьера под ключ',
+      'Ландшафтный дизайн и благоустройство',
+      'Экологичные решения для вашего пространства',
+      'Профессиональное озеленение помещений и территорий с использованием современных технологий',
+    ],
+    descriptions: [
+      'Профессиональное озеленение помещений и территорий с использованием современных технологий',
+      'Создаем гармоничные природные пространства с учетом ваших пожеланий',
+      'Мы предлагаем профессиональное создание сайтов с адаптивным дизайном, SEO и высоким уровнем безопасности, используя современные технологии и фреймворки.',
+      'Экологичный подход и индивидуальные решения для каждого проекта'
+    ],
+    services: [
+      'Проектирование ландшафтного дизайна',
+      'Озеленение интерьеров',
+      'Экологический консалтинг'
+    ],
+    info: [
+      '',
+      'Профессиональное озеленение помещений и территорий с использованием современных технологий — это создание гармоничных природных пространств, где сочетаются эстетика, функциональность и экологичность. Мы применяем инновационные решения',
+    'Мы применяем инновационные решения: автоматизированные системы полива, фитостены с интеллектуальным климат-контролем'
+    ]
+  },
+  blue: {
+    images: [
+      'https://avatars.mds.yandex.net/get-altay/4341149/2a0000017bca70d1ca9108db93de0692a177/XXL_height',
+      'https://pic.rutubelist.ru/video/2024-09-23/c9/c7/c9c7c2d5f62b7700002d08440cfe046f.jpg',
+      'https://do.e1.ru/preview/do/c6a9e888eb88d3063dad4471090b54b3_1591265766_856_710.jpg',
+      'https://avatars.mds.yandex.net/i?id=247f392dbfe508442561db3db3ad57c938a15c6c-5520851-images-thumbs&n=13',
+    ],
+    titles: [
+      'Юридические услуги и консультации',
+      'Полное правовое сопровождение бизнеса',
+      'Защита ваших интересов в суде',
+      'Полное сопровождение сделок'
+    ],
+    descriptions: [
+      'Профессиональные юридические услуги с индивидуальным подходом',
+      'Комплексное правовое сопровождение на всех этапах',
+      '',
+      'Надежная защита ваших прав и интересов'
+    ],
+    services: [
+      'Юридические консультации',
+      'Сопровождение сделок',
+      'Судебная защита'
+    ],
+    info: [
+      '',
+      'Полное правовое сопровождение бизнеса — это комплекс юридических услуг, направленных на защиту интересов компании на всех этапах ее деятельности. Наши юристы обеспечивают грамотное оформление договоров, проверку контрагентов, сопровождение сделок, разрешение корпоративных споров, а также консультирование по вопросам налогообложения, трудового права и защиты интеллектуальной собственности.'
+    ]
+  },
+  orange: {
+    images: [
+      'https://avatars.mds.yandex.net/get-altay/3986639/2a0000017acd45ba71bd40ef4ad1033fff0c/XXXL',
+      'https://avatars.mds.yandex.net/get-ydo/1384592/2a0000016bd5372bb278fc6e9a770fd41253/diploma',
+      'https://avatars.mds.yandex.net/i?id=266ec812e336c380aa24d79d6609b639_l-4120868-images-thumbs&n=13',
+      'https://cdn-icons-png.freepik.com/256/2289/2289316.png'
+    ],
+    titles: [
+      'Профессиональная разработка и запуск современных сайтов',
+      'Создание digital-продуктов под ключ',
+      'Услуги по дизайну и разработке сайтов',
+      'Создание и запуск современных сайтов',
+    ],
+    descriptions: [
+      'Мы создаём сайты с адаптивным дизайном, используя HTML, CSS, JavaScript и современные фреймворки',
+      'Полный цикл разработки от проектирования до запуска',
+      '',
+      'Мы предлагаем профессиональное создание сайтов с адаптивным дизайном, SEO и высоким уровнем безопасности, используя современные технологии и фреймворки'
+    ],
+    info: [
+      '',
+      'Мы проектируем, разрабатываем и запускаем сайты, используя HTML, CSS, JavaScript и CMS. Уделяем внимание адаптивному дизайну, SEO и безопасности.'
+    ],
+    services: [
+      'Разработка сайтов',
+      'UI/UX дизайн',
+      'Техническая поддержка'
+    ]
+  }
+};
+
 const elements: MenuElement[] = [
   { name: "Услуги", url: "/" },
   { name: "Портфолио", url: "/about" },
@@ -44,32 +135,35 @@ export default {
   },
 };
 
-const Template = (args: { theme: string }) => html`
+const Template = (args: { theme: string }) => {
+  const content = themeContent[args.theme as keyof typeof themeContent];
+
+  return html`
   <style>
     :root {
       --theme-main-color: ${args.theme === "green"
-        ? "rgb(39, 141, 85)"
-        : args.theme === "blue"
+      ? "rgb(39, 141, 85)"
+      : args.theme === "blue"
         ? "rgb(25, 52, 90)"
         : "rgb(255, 85, 0)"};
       --theme-main-lighter-color: ${args.theme === "green"
-        ? "rgb(27, 170, 91)"
-        : args.theme === "blue"
+      ? "rgb(27, 170, 91)"
+      : args.theme === "blue"
         ? "rgb(33, 72, 126)"
         : "rgb(255, 119, 82)"};
       --border-radius: ${args.theme === "green"
-        ? "0px"
-        : args.theme === "blue"
+      ? "0px"
+      : args.theme === "blue"
         ? "20px"
         : "8px"};
       --theme-text-color: ${args.theme === "green"
-        ? "rgb(0, 30, 14)"
-        : args.theme === "blue"
+      ? "rgb(0, 30, 14)"
+      : args.theme === "blue"
         ? "rgb(0, 16, 39)"
         : "rgb(51, 51, 51)"};
       --font-family: ${args.theme === "green"
-        ? "'Courier New', Courier, monospace"
-        : args.theme === "blue"
+      ? "'Courier New', Courier, monospace"
+      : args.theme === "blue"
         ? "'Trebuchet MS', Helvetica, sans-serif"
         : "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"};
     }
@@ -88,15 +182,19 @@ const Template = (args: { theme: string }) => html`
   <div class="main-container">
     <ui-header style="--header-height: 80px;">
       <ui-menu type="horizontal" size="medium" .elements=${elements}></ui-menu>
-      <ui-button type="primary" size="medium" label="Заказать сайт"></ui-button>
+      <ui-button type="primary" size="medium" label=${args.theme === "green" 
+            ? "Заказать консультацию" 
+            : args.theme === "blue" 
+            ? "Записаться на прием" 
+            : "Оставить заявку"}>></ui-button>
     </ui-header>
 
     <ui-card
-      title="Профессиональная разработка и запуск современных сайтов"
-      description="Мы создаём сайты с адаптивным дизайном, используя HTML, CSS, JavaScript и современные фреймворки"
+      title=${content.titles[0]}
+        description=${content.descriptions[0]}
       size="large"
-      image-url="https://avatars.mds.yandex.net/get-altay/3986639/2a0000017acd45ba71bd40ef4ad1033fff0c/XXXL"
-      image-alt="Разработка"
+       image-url=${content.images[0]}
+        image-alt="Главное изображение"
       ?hoverable="false"
     ></ui-card>
 
@@ -104,14 +202,12 @@ const Template = (args: { theme: string }) => html`
       style="display: block;margin-top:180px;margin-bottom:180px"
       size="large"
       type="horizontal"
-      title="Создание сайтов с использованием современных технологий"
-      description="Профессионализм и качество в каждой детали"
+      title=${content.titles[1]}
+      description=${content.descriptions[1]}
     >
       <div slot="content">
         <p>
-          Мы проектируем, разрабатываем и запускаем сайты, используя HTML, CSS,
-          JavaScript и CMS. Уделяем внимание адаптивному дизайну, SEO и
-          безопасности.
+        ${content.info[1]}
         </p>
       </div>
     </ui-card>
@@ -126,32 +222,17 @@ const Template = (args: { theme: string }) => html`
         margin: 0 auto 180px;
       }
     </style>
-    <h1>Услуги по дизайну и разработке сайтов</h1>
-    <h3>
-      Создание эффективного онлайн-представительства с индивидуальным дизайном и
-      современными технологиями
-    </h3>
+    <h1>${content.titles[2]}</h1>
+    <h3>${content.info[2]}</h3>
     <div class="cards-container">
-      <ui-card
-        size="small"
-        title="Проектирование и разработка сайта"
-        image-url="https://cdn-edge.kwork.ru/pics/t3/35/10209328-1603076936.jpg"
-        hoverable
-      ></ui-card>
-
-      <ui-card
-        size="small"
-        title="Адаптивный дизайн и SEO-оптимизация"
-        image-url="https://sun9-58.userapi.com/impg/d0Hk28ZIIP974TyIyPEGbac9rhS_4FFWOxAqFg/yh1NslumMA8.jpg?size=1066x843&quality=95&sign=4626764c97536cfc164b5650747ead99&type=album"
-        hoverable
-      ></ui-card>
-
-      <ui-card
-        size="small"
-        title="Решения для интернет-магазинов"
-        image-url="https://оопт-крым.рф/wp-content/uploads/2024/07/mlfstcfsyr4.jpg"
-        hoverable
-      ></ui-card>
+       ${content.services.map((service, index) => html`
+          <ui-card
+            size="small"
+            title=${service}
+            image-url=${content.images[index % content.images.length]}
+            hoverable
+          ></ui-card>
+        `)}
     </div>
     <style>
       .colored-block {
@@ -169,8 +250,8 @@ const Template = (args: { theme: string }) => html`
       <ui-card
         size="large"
         color="light"
-        title="Создание и запуск современных сайтов"
-        description="Мы предлагаем профессиональное создание сайтов с адаптивным дизайном, SEO и высоким уровнем безопасности, используя современные технологии и фреймворки."
+        title="${content.titles[3]}"
+        description="${content.descriptions[3]}"
       >
         <div class="centered" slot="content">
           <ui-button
@@ -186,19 +267,19 @@ const Template = (args: { theme: string }) => html`
       <ui-card
         size="xs"
         description="Преимущество 1. Расскажите, что отличает ваши услуги от услуг в других компаниях"
-        image-url="https://cdn-icons-png.freepik.com/256/2289/2289316.png"
+        image-url="${content.images[3]}"
       ></ui-card>
 
       <ui-card
         size="xs"
         description="Преимущество 2. Расскажите, чему вы уделяете больше всего внимания в работе с клиентами"
-        image-url="https://cdn-icons-png.freepik.com/256/2289/2289316.png"
+        image-url="${content.images[3]}"
       ></ui-card>
 
       <ui-card
         size="xs"
         description="Преимущество 3. Расскажите, в чем преимущество работы именно с вашей командой"
-        image-url="https://cdn-icons-png.freepik.com/256/2289/2289316.png"
+        image-url="${content.images[3]}"
       ></ui-card>
     </div>
     <style>
@@ -236,5 +317,5 @@ const Template = (args: { theme: string }) => html`
     </ui-footer>
   </div>
 `;
-
+}
 export const Default = Template.bind({});
