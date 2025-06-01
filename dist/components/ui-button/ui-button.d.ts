@@ -1,11 +1,10 @@
 import { LitElement, CSSResult } from "lit";
-export type ButtonType = "primary" | "light" | "secondary";
-export type ButtonSize = "small" | "medium" | "large";
+import { ButtonVariant, ElementSize } from "../../../declaration";
 export declare class UiButton extends LitElement {
     static styles: CSSResult;
-    type: ButtonType;
-    size: ButtonSize;
+    type: ButtonVariant;
+    size: ElementSize;
     label: string;
-    render(): import("lit-html").TemplateResult<1>;
+    render(): import("lit").TemplateResult<1>;
     private handleClick;
 }

@@ -18,9 +18,18 @@ declare namespace JSX {
     // Add similar declarations for other components
   }
 }
+ 
 
-declare interface UiButtonElement extends HTMLElement {
-  primary: boolean;
-  size: 'small' | 'medium' | 'large';
-  label: string;
-}
+declare type ButtonVariant = "primary" | "secondary" | "light";
+
+declare type ElementSize = 'xs' | 'small' | 'medium' | 'large';
+
+declare type Orientation = 'vertical' | 'horizontal';
+
+declare type ColorTheme = 'light' | 'dark';
+
+declare type MenuElement<T = {}> = {
+  id?: string;
+  name: string;
+  url: string;
+} & T;

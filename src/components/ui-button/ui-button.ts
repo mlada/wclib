@@ -2,8 +2,8 @@ import { LitElement, html, CSSResult } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import { classMap } from "lit/directives/class-map.js";
 import { styles } from "./ui-button.styles";
-import { ElementSize, ButtonVariant } from "..";
-
+import { ButtonVariant, ElementSize } from "../../../declaration";
+ 
 @customElement("ui-button")
 export class UiButton extends LitElement {
   static styles: CSSResult = styles;

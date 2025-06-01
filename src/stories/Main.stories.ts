@@ -1,6 +1,6 @@
 import { html } from "lit";
-import { MenuElement } from "../components";
-
+import { MenuElement } from "../../declaration";
+ 
 const elements: MenuElement[] = [
   { name: "Услуги", url: "/" },
   { name: "Портфолио", url: "/about" },

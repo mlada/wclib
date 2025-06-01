@@ -7,8 +7,7 @@ import { UiMenu } from "./ui-menu/ui-menu";
 
 export { UiButton, UiCard, UiFooter, UiHeader, UiInput, UiMenu };
 
-export * from './types.ts';
-
+ 
 // Register all components
 if (!customElements.get("ui-button")) {
   customElements.define("ui-button", UiButton);

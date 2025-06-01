@@ -1,8 +1,8 @@
 import { LitElement, html, CSSResult } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { styles } from "./ui-card.styles";
-import { Orientation, ColorTheme, ElementSize } from '..';
- 
+import { ColorTheme, ElementSize, Orientation } from '../../../declaration';
+  
 @customElement('ui-card')
 export class UiCard extends LitElement {
   static styles: CSSResult = styles;

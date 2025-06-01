@@ -26,9 +26,7 @@
     "strictPropertyInitialization": false,
     "strictBindCallApply": true,
     "strictFunctionTypes": true,
-    "esModuleInterop": true,
-    "allowImportingTsExtensions": true,
-    "noEmit": true,
+    "esModuleInterop": true, 
   },
   "angularCompilerOptions": {
     "strictTemplates": false

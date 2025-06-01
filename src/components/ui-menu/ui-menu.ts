@@ -2,8 +2,8 @@
 import { LitElement, html, CSSResult } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { styles } from './ui-menu.styles';
-import { ElementSize, Orientation, MenuElement } from '../types';
-
+import { ElementSize, MenuElement, Orientation } from '../../../declaration';
+ 
 
 
 @customElement('ui-menu')
