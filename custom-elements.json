@@ -1,0 +1,93 @@
+{
+  "schemaVersion": "1.0.0",
+  "readme": "",
+  "modules": [
+    {
+      "kind": "javascript-module",
+      "path": "src/components/ui-button/ui-button.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "UiButton",
+          "members": [
+            {
+              "kind": "field",
+              "name": "styles",
+              "type": {
+                "text": "CSSResult"
+              },
+              "static": true,
+              "default": "styles"
+            },
+            {
+              "kind": "field",
+              "name": "type",
+              "type": {
+                "text": "ButtonVariant"
+              },
+              "default": "\"primary\""
+            },
+            {
+              "kind": "field",
+              "name": "size",
+              "type": {
+                "text": "ElementSize"
+              },
+              "default": "\"medium\""
+            },
+            {
+              "kind": "field",
+              "name": "label",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"\""
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            },
+            {
+              "kind": "method",
+              "name": "handleClick",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "e",
+                  "type": {
+                    "text": "Event"
+                  }
+                }
+              ]
+            }
+          ],
+          "events": [
+            {
+              "name": "click",
+              "type": {
+                "text": "CustomEvent"
+              }
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "ui-button",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "UiButton",
+          "declaration": {
+            "name": "UiButton",
+            "module": "src/components/ui-button/ui-button.ts"
+          }
+        }
+      ]
+    }
+  ]
+}

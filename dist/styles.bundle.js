@@ -1,0 +1,2 @@
+"use strict";!function(e,t){"object"==typeof exports&&"object"==typeof module?module.exports=t():"function"==typeof define&&define.amd?define([],t):"object"==typeof exports?exports.MyLibrary=t():e.MyLibrary=t()}(this,(()=>(this.webpackChunkMyLibrary=this.webpackChunkMyLibrary||[]).push([[869],{492:(e,t,r)=>{r.r(t)}},e=>{var t;return t=492,e(e.s=t)}])));
+//# sourceMappingURL=styles.bundle.js.map

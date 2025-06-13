@@ -1,6 +1,6 @@
 {
   "name": "@mlada/wclib",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "UI kit web components",
   "license": "SEE LICENSE IN LICENSE",
   "author": "Ranneva Mlada",
@@ -31,6 +31,7 @@
   "devDependencies": {
     "@babel/core": "^7.27.1",
     "@babel/preset-env": "^7.27.2",
+    "@custom-elements-manifest/analyzer": "^0.10.4",
     "@storybook/addon-actions": "^8.6.12",
     "@storybook/addon-essentials": "^8.6.12",
     "@storybook/addon-webpack5-compiler-swc": "^3.0.0",
