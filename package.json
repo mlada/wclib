@@ -21,7 +21,8 @@
     "publish": "npm publish --access public",
     "generate": "node ./scripts/generate-adapters.js",
     "build": "tsc && webpack --mode production",
-    "analyze": "webpack --profile --json > stats.json && webpack-bundle-analyzer stats.json"
+    "analyze": "webpack --profile --json > stats.json && webpack-bundle-analyzer stats.json",
+    "deploy": "gh-pages -d storybook-static"
   },
   "dependencies": {
     "@abraham/reflection": "^0.13.0",
@@ -48,6 +49,7 @@
     "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^7.1.2",
     "cssnano": "^7.0.7",
+    "gh-pages": "^6.3.0",
     "handlebars": "^4.7.8",
     "html-webpack-plugin": "^5.6.3",
     "mini-css-extract-plugin": "^2.9.2",
