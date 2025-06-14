@@ -33,3 +33,20 @@ declare type MenuElement<T = {}> = {
   name: string;
   url: string;
 } & T;
+
+import { UiModal } from '../components/ui-modal/ui-modal';
+
+declare global {
+  interface HTMLElementTagNameMap {
+    'ui-modal': UiModal;
+  }
+}
+
+export interface ModalOptions {
+  title?: string;
+  content?: string;
+  buttons?: Array<{
+    text: string;
+    action: () => void;
+  }>;
+}

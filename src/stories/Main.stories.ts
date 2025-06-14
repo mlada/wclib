@@ -1,5 +1,8 @@
 import { html } from "lit";
 import { MenuElement } from "../../declaration";
+import { UiModal } from "../components/ui-modal/ui-modal";
+import { createRef, ref } from 'lit/directives/ref.js';
+
 // Контент для разных тем
 const themeContent = {
   green: {
@@ -137,6 +140,13 @@ export default {
 
 const Template = (args: { theme: string }) => {
   const content = themeContent[args.theme as keyof typeof themeContent];
+  const modalRef = createRef<UiModal>();
+
+  const openModal = () => {
+    if (modalRef.value) {
+      modalRef.value.open = true;
+    }
+  };
 
   return html`
   <style>
@@ -260,7 +270,8 @@ const Template = (args: { theme: string }) => {
   <div class="main-container">
     <ui-header>
       <ui-menu type="horizontal" size="medium" .elements=${elements}></ui-menu>
-      <ui-button 
+      <ui-button
+      @click=${openModal} 
         type="primary" 
         size="medium" 
         label=${args.theme === "green" ? "Консультация" : 
@@ -317,7 +328,7 @@ const Template = (args: { theme: string }) => {
             type="light"
             size="large"
             label="Рассчитать стоимость"
-          ></ui-button>
+            @click=${openModal}></ui-button>
         </div>
       </ui-card>
     </div>
@@ -370,6 +381,35 @@ const Template = (args: { theme: string }) => {
       </div>
     </ui-footer>
   </div>
+   <ui-modal 
+      title="Заказать консультацию"
+      ${ref(modalRef)}
+    >
+      <form>
+        <div style="display: grid; gap: 1rem; margin-right: 2rem;">
+          <label>
+            Ваше имя
+            <input type="text" required style="width: 100%; padding: 0.5rem;">
+          </label>
+          <label>
+            Email
+            <input type="email" required style="width: 100%; padding: 0.5rem;">
+          </label>
+          <label>
+            Сообщение
+            <textarea style="width: 100%; padding: 0.5rem; min-height: 100px;"></textarea>
+          </label>
+        </div>
+      </form>
+      <div slot="footer">
+        <ui-button 
+          type="primary" 
+          size="medium" 
+          label="Отправить"
+          @click=${() => modalRef.value?.close()}
+        ></ui-button>
+      </div>
+    </ui-modal>
 `;
 }
 export const Default = Template.bind({});

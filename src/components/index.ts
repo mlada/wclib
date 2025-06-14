@@ -4,8 +4,9 @@ import { UiFooter } from "./ui-footer/ui-footer";
 import { UiHeader } from "./ui-header/ui-header";
 import { UiInput } from "./ui-input/ui-input";
 import { UiMenu } from "./ui-menu/ui-menu";
+import { UiModal } from "./ui-modal/ui-modal";
 
-export { UiButton, UiCard, UiFooter, UiHeader, UiInput, UiMenu };
+export { UiButton, UiCard, UiFooter, UiHeader, UiInput, UiMenu, UiModal };
 
  
 // Register all components
@@ -26,5 +27,8 @@ if (!customElements.get("ui-input")) {
 }
 if (!customElements.get("ui-menu")) {
   customElements.define("ui-menu", UiMenu);
+}
+if (!customElements.get("ui-modal")) {
+  customElements.define("ui-modal", UiModal);
 }
 

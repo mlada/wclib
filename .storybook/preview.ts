@@ -1,4 +1,4 @@
-import { UiButton, UiCard, UiFooter, UiHeader, UiMenu } from "../src/components";
+import { UiButton, UiCard, UiFooter, UiHeader, UiMenu, UiModal } from "../src/components";
 import type { Preview } from "@storybook/web-components";
 import "../src/styles/main.css";
  
@@ -22,6 +22,12 @@ if (!customElements.get("ui-header")) {
 if (!customElements.get("ui-menu")) {
   customElements.define("ui-menu", UiMenu);
 }
+
+if (!customElements.get("ui-modal")) {
+  customElements.define("ui-modal", UiModal);
+}
+
+
 
 const preview: Preview = {
   parameters: {
