@@ -1,58 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/web-components';
 import { html } from 'lit';
 import { UiMenu } from '../components/ui-menu/ui-menu';
-
-/** 
- * A flexible navigation menu component with vertical and horizontal layouts.
- * 
- * ### Angular Usage
- * ```typescript
- * import { UiMenuDirective } from 'your-library';
- * 
- * @NgModule({
- *   declarations: [UiMenuDirective],
- * })
- * export class YourModule {}
- * 
- * // In template:
- * <ui-menu
- *   [type]="'horizontal'"
- *   [size]="'medium'"
- *   [elements]="menuItems"
- * ></ui-menu>
- * 
- * // In component class:
- * menuItems = [
- *   { name: 'Home', url: '/', icon: 'home' },
- *   { name: 'About', url: '/about', icon: 'info' },
- *   { name: 'Contact', url: '/contact', icon: 'mail' }
- * ];
- * 
- * ```
- * 
- * ### React Usage
- * ```jsx
- * import { ReactUiMenu } from 'your-library';
- * 
- * function App() {
- *   const menuItems = [
- *     { name: 'Home', url: '/', icon: 'home' },
- *     { name: 'Products', url: '/products', icon: 'shopping' },
- *     { name: 'Contact', url: '/contact', icon: 'mail' }
- *   ];
- * 
- *  
- * 
- *   return (
- *     <ReactUiMenu
- *       type="vertical"
- *       size="large"
- *       elements={menuItems}
- *     />
- *   );
- * }
- * ```
- */
 const meta: Meta<UiMenu> = {
   title: 'Components/UI Menu',
   component: 'ui-menu',
@@ -92,6 +40,12 @@ const meta: Meta<UiMenu> = {
     ],
   },
   render: (args) => html`
+    <style>
+      ui-menu::part(menu-container) {
+        position: relative;
+        display: inline-block;
+      }
+    </style>
     <ui-menu
       type=${args.type}
       size=${args.size}
@@ -134,56 +88,65 @@ export const LargeMenu: Story = {
     size: 'large',
   },
 };
-
-// Menu with custom items
-export const CustomItems: Story = {
+// Mobile burger menu demo
+export const MobileBurgerMenu: Story = {
   args: {
-    elements: [
-      { name: 'Products', url: '/products' },
-      { name: 'Services', url: '/services' },
-      { name: 'Blog', url: '/blog' },
-      { name: 'Support', url: '/support' },
-    ],
-  },
-};
-
-// Menu with icons
-export const WithIcons: Story = {
-  args: {
-    elements: [
-      { name: 'Dashboard', url: '/',   },
-      { name: 'Projects', url: '/projects',  },
-      { name: 'Team', url: '/team',   },
-      { name: 'Settings', url: '/settings',   },
-    ],
-  },
-  render: (args) => html`
-    <ui-menu
-      type=${args.type}
-      size=${args.size}
-      .elements=${args.elements}
-    ></ui-menu>
-  `,
-};
-
-// Dark theme menu
-export const DarkTheme: Story = {
-  args: {
-    type: 'vertical',
+    type: 'horizontal',
   },
   decorators: [
     (story) => html`
       <style>
-        .dark-menu {
-          --menu-bg: #2d3748;
-          --menu-text: #f7fafc;
-          --menu-hover: #4a5568;
-          --menu-active: #4299e1;
+        .mobile-preview {
+          position: relative;
+          border: 1px solid #ddd;
+          border-radius: 8px;
+          overflow: hidden;
+          width: 360px;
+          height: 600px;
+          resize: both;
+          overflow: auto;
+          background: white;
+        }
+        
+        .mobile-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 1rem;
+          background: #f8f9fa;
+          border-bottom: 1px solid #eee;
+          position: relative;
+        }
+        
+        .logo {
+          font-weight: bold;
+        }
+        
+        ui-menu::part(menu-container) {
+          position: static;
+        }
+        
+        @media (min-width: 768px) {
+          .mobile-preview {
+            width: 100%;
+            height: auto;
+            resize: none;
+          }
         }
       </style>
-      <div class="dark-menu" style="display: flex; height: 300px; padding: 1rem; background: #1a202c;">
-        ${story()}
+      <div class="mobile-preview">
+        <div class="mobile-header">
+          ${story()}
+        </div>
+        <div style="padding: 1rem;">
+          <p>Mobile content goes here. Resize the preview to see how the burger menu behaves.</p>
+        </div>
       </div>
     `,
   ],
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile2',
+    },
+  },
 };

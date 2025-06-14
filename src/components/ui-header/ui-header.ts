@@ -1,4 +1,3 @@
-
 import { LitElement, html, CSSResult } from 'lit';
 import { customElement } from 'lit/decorators.js';
 import { styles } from './ui-header.styles';
@@ -10,7 +9,10 @@ export class UiHeader extends LitElement {
   private scrollHandler = () => {
     const header = this.shadowRoot?.querySelector('.ui-header');
     if (header) {
-      if (window.scrollY > 10) {
+      const scrollContainer = this.findScrollContainer();
+      const scrollY = scrollContainer?.scrollTop || window.scrollY;
+      
+      if (scrollY > 10) {
         header.classList.add('scrolled');
       } else {
         header.classList.remove('scrolled');
@@ -18,13 +20,29 @@ export class UiHeader extends LitElement {
     }
   };
 
+  private findScrollContainer(): HTMLElement | null {
+    let el: HTMLElement | null = this;
+    while (el) {
+      if (el.scrollHeight > el.clientHeight && getComputedStyle(el).overflowY !== 'visible') {
+        return el;
+      }
+      el = el.parentElement;
+    }
+    return null;
+  }
+
   connectedCallback() {
     super.connectedCallback();
-    window.addEventListener('scroll', this.scrollHandler);
+    const scrollContainer = this.findScrollContainer() || window;
+    scrollContainer.addEventListener('scroll', this.scrollHandler);
+    
+    // Инициализируем состояние при загрузке
+    setTimeout(() => this.scrollHandler(), 0);
   }
 
   disconnectedCallback() {
-    window.removeEventListener('scroll', this.scrollHandler);
+    const scrollContainer = this.findScrollContainer() || window;
+    scrollContainer.removeEventListener('scroll', this.scrollHandler);
     super.disconnectedCallback();
   }
 

@@ -141,111 +141,170 @@ const Template = (args: { theme: string }) => {
   return html`
   <style>
     :root {
-      --theme-main-color: ${args.theme === "green"
-      ? "rgb(39, 141, 85)"
-      : args.theme === "blue"
-        ? "rgb(25, 52, 90)"
-        : "rgb(255, 85, 0)"};
-      --theme-main-lighter-color: ${args.theme === "green"
-      ? "rgb(27, 170, 91)"
-      : args.theme === "blue"
-        ? "rgb(33, 72, 126)"
-        : "rgb(255, 119, 82)"};
-      --border-radius: ${args.theme === "green"
-      ? "0px"
-      : args.theme === "blue"
-        ? "20px"
-        : "8px"};
-      --theme-text-color: ${args.theme === "green"
-      ? "rgb(0, 30, 14)"
-      : args.theme === "blue"
-        ? "rgb(0, 16, 39)"
-        : "rgb(51, 51, 51)"};
-      --font-family: ${args.theme === "green"
-      ? "'Courier New', Courier, monospace"
-      : args.theme === "blue"
-        ? "'Trebuchet MS', Helvetica, sans-serif"
-        : "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"};
+      --theme-main-color: ${args.theme === "green" ? "rgb(39, 141, 85)" : 
+                          args.theme === "blue" ? "rgb(25, 52, 90)" : "rgb(255, 85, 0)"};
+      --theme-main-lighter-color: ${args.theme === "green" ? "rgb(27, 170, 91)" : 
+                                  args.theme === "blue" ? "rgb(33, 72, 126)" : "rgb(255, 119, 82)"};
+      --border-radius: ${args.theme === "green" ? "0px" : 
+                       args.theme === "blue" ? "20px" : "8px"};
+      --theme-text-color: ${args.theme === "green" ? "rgb(0, 30, 14)" : 
+                           args.theme === "blue" ? "rgb(0, 16, 39)" : "rgb(51, 51, 51)"};
+      --font-family: ${args.theme === "green" ? "'Courier New', Courier, monospace" : 
+                      args.theme === "blue" ? "'Trebuchet MS', Helvetica, sans-serif" : 
+                      "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"};
     }
 
-    /* Стили для переключателя темы в Storybook */
-    .theme-switcher {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      z-index: 1000;
-      padding: 8px 12px;
-      background: rgba(0, 0, 0, 0.1);
-      border-radius: calc(var(--border-radius) / 2);
+    /* Базовые стили */
+    .main-container {
+      overflow-x: hidden;
+    }
+
+    ui-header {
+      --header-height: 60px;
+    }
+
+    /* Карточки */
+    .cards-container {
+      display: grid;
+      gap: 1rem;
+      padding: 0 1rem;
+      margin: 2rem 0;
+    }
+
+    /* Блоки с отступами */
+    .section-block {
+      margin: 2rem 0;
+      padding: 0 1rem;
+    }
+
+    /* Цветной блок */
+    .colored-block {
+      background: var(--theme-main-lighter-color);
+      padding: 2rem 1rem;
+      margin: 2rem 0;
+    }
+
+    /* Заголовки */
+    h1, h2, h3 {
+      padding: 0 1rem;
+      margin: 1.5rem 0 1rem;
+      text-align: center;
+    }
+
+    /* Футер */
+    .custom-content {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      padding: 1rem;
+    }
+
+    /* Десктоп версия */
+    @media (min-width: 768px) {
+      ui-header {
+        --header-height: 80px;
+      }
+
+      .cards-container {
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 1.5rem;
+        padding: 1.25rem;
+        margin: 3rem 0;
+      }
+
+      .section-block {
+        margin: 3rem 0;
+        padding: 0 1.25rem;
+      }
+
+      .colored-block {
+        padding: 3rem 1.25rem;
+        margin: 3rem 0;
+      }
+
+      h1, h2, h3 {
+        margin: 2rem 0 1.5rem;
+      }
+
+      .custom-content {
+        flex-direction: row;
+        justify-content: space-between;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 1.5rem;
+        gap: 2rem;
+      }
+    }
+
+    /* Очень маленькие экраны */
+    @media (max-width: 480px) {
+      .cards-container {
+        gap: 0.75rem;
+      }
+
+      .section-block,
+      .colored-block {
+        margin: 1.5rem 0;
+      }
+
+      h1, h2, h3 {
+        margin: 1rem 0 0.75rem;
+      }
+
+      ui-button {
+        --button-padding: 0.5rem 1rem;
+      }
     }
   </style>
+
   <div class="main-container">
-    <ui-header style="--header-height: 80px;">
+    <ui-header>
       <ui-menu type="horizontal" size="medium" .elements=${elements}></ui-menu>
-      <ui-button type="primary" size="medium" label=${args.theme === "green" 
-            ? "Заказать консультацию" 
-            : args.theme === "blue" 
-            ? "Записаться на прием" 
-            : "Оставить заявку"}>></ui-button>
+      <ui-button 
+        type="primary" 
+        size="medium" 
+        label=${args.theme === "green" ? "Консультация" : 
+               args.theme === "blue" ? "Записаться" : 
+               "Заявка"}
+      ></ui-button>
     </ui-header>
 
     <ui-card
       title=${content.titles[0]}
-        description=${content.descriptions[0]}
+      description=${content.descriptions[0]}
       size="large"
-       image-url=${content.images[0]}
-        image-alt="Главное изображение"
+      image-url=${content.images[0]}
+      image-alt="Главное изображение"
       ?hoverable="false"
     ></ui-card>
 
-    <ui-card
-      style="display: block;margin-top:180px;margin-bottom:180px"
-      size="large"
-      type="horizontal"
-      title=${content.titles[1]}
-      description=${content.descriptions[1]}
-    >
-      <div slot="content">
-        <p>
-        ${content.info[1]}
-        </p>
-      </div>
-    </ui-card>
+    <div class="section-block">
+      <ui-card
+        size="large"
+        type="horizontal"
+        title=${content.titles[1]}
+        description=${content.descriptions[1]}
+      >
+        <div slot="content">
+          <p>${content.info[1]}</p>
+        </div>
+      </ui-card>
+    </div>
 
-    <style>
-      .cards-container {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-        gap: 24px;
-        padding: 20px;
-        max-width: 1200px;
-        margin: 0 auto 180px;
-      }
-    </style>
     <h1>${content.titles[2]}</h1>
     <h3>${content.info[2]}</h3>
+    
     <div class="cards-container">
-       ${content.services.map((service, index) => html`
-          <ui-card
-            size="small"
-            title=${service}
-            image-url=${content.images[index % content.images.length]}
-            hoverable
-          ></ui-card>
-        `)}
+      ${content.services.map((service, index) => html`
+        <ui-card
+          size="small"
+          title=${service}
+          image-url=${content.images[index % content.images.length]}
+          hoverable
+        ></ui-card>
+      `)}
     </div>
-    <style>
-      .colored-block {
-        display: block;
-        padding-top: 180px;
-        padding-bottom: 180px;
-        background-color: var(--theme-main-lighter-color);
-        color: var(--theme-text-light-color) !important;
-      }
-      .centered {
-        text-align: center !important;
-      }
-    </style>
+
     <div class="colored-block">
       <ui-card
         size="large"
@@ -262,7 +321,8 @@ const Template = (args: { theme: string }) => {
         </div>
       </ui-card>
     </div>
-    <h1 style="margin-top: 180px">Преимущества компании</h1>
+
+    <h1>Преимущества компании</h1>
     <div class="cards-container">
       <ui-card
         size="xs"
@@ -282,13 +342,7 @@ const Template = (args: { theme: string }) => {
         image-url="${content.images[3]}"
       ></ui-card>
     </div>
-    <style>
-      .custom-content {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-      }
-    </style>
+
     <ui-footer>
       <div class="custom-content" slot="">
         <section>

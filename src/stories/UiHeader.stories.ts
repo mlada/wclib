@@ -100,7 +100,6 @@ const meta: Meta<UiHeader> = {
         size="medium"
         .elements=${elements}
       ></ui-menu>
-      <h1>РАЗРАБОТЧИК</h1>
       <ui-button
         type="primary"
         size="medium"
@@ -116,86 +115,3 @@ type Story = StoryObj<UiHeader>;
 
 // Default header
 export const Default: Story = {};
-
-// Sticky header
-export const Sticky: Story = {
-  parameters: {
-    layout: 'fullscreen',
-    docs: {
-      description: {
-        story: 'This header sticks to the top when scrolling. Try scrolling the preview area.'
-      }
-    }
-  },
-  decorators: [
-    (story) => html`
-      <div style="height: 200vh; position: relative;">
-        ${story()}
-        <div style="padding: 20px; margin-top: 100px;">
-          <h2>Scroll down to see sticky behavior</h2>
-          <p>Page content...</p>
-        </div>
-      </div>
-    `
-  ]
-};
-
-// Header with custom logo
-export const WithCustomLogo: Story = {
-  render: (args) => html`
-    <ui-header
-      style="--header-height: 80px;"
-    >
-      <img 
-        slot="logo" 
-        src="https://via.placeholder.com/150x50?text=Логотип" 
-        alt="Логотип компании"
-        style="height: 40px;"
-      >
-      <ui-menu
-        type="horizontal"
-        size="medium"
-        .elements=${elements}
-      ></ui-menu>
-      <ui-button
-        type="primary"
-        size="medium"
-        label="Заказать сайт"
-      ></ui-button>
-    </ui-header>
-  `
-};
-
-// Dark theme header
-export const DarkTheme: Story = {
-  render: (args) => html`
-    <style>
-      .dark-header {
-        --header-bg: #222;
-        --header-text: #fff;
-        --header-link: #ddd;
-        --header-link-hover: #fff;
-        --header-border: #444;
-      }
-    </style>
-    <ui-header
-      class="dark-header"
-      style="--header-height: 80px;"
-    >
-      <ui-menu
-        type="horizontal"
-        size="medium"
-        .elements=${elements}
-      ></ui-menu>
-      <h1>РАЗРАБОТЧИК</h1>
-      <ui-button
-        type="light"
-        size="medium"
-        label="Заказать сайт"
-      ></ui-button>
-    </ui-header>
-  `,
-  parameters: {
-    backgrounds: { default: 'dark' }
-  }
-};
