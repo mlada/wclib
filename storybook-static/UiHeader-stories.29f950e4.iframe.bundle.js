@@ -1,0 +1,17 @@
+"use strict";(self.webpackChunk_mlada_wclib=self.webpackChunk_mlada_wclib||[]).push([[622],{"./src/stories/UiHeader.stories.ts":(__unused_webpack_module,__webpack_exports__,__webpack_require__)=>{__webpack_require__.r(__webpack_exports__),__webpack_require__.d(__webpack_exports__,{Default:()=>Default,__namedExportsOrder:()=>__namedExportsOrder,default:()=>__WEBPACK_DEFAULT_EXPORT__});var lit__WEBPACK_IMPORTED_MODULE_0__=__webpack_require__("./node_modules/lit/index.js");const elements=[{name:"Услуги",url:"/services"},{name:"Портфолио",url:"/portfolio"},{name:"О компании",url:"/about"}],__WEBPACK_DEFAULT_EXPORT__={title:"Components/UI Header",component:"ui-header",tags:["autodocs"],render:args=>lit__WEBPACK_IMPORTED_MODULE_0__.qy`
+    <ui-header
+      style="--header-height: 80px;"
+    >
+      <ui-menu
+        type="horizontal"
+        size="medium"
+        .elements=${elements}
+      ></ui-menu>
+      <ui-button
+        type="primary"
+        size="medium"
+        label="Заказать сайт"
+      ></ui-button>
+    </ui-header>
+  `,parameters:{docs:{description:{component:"A customizable header component with navigation menu and call-to-action buttons.\r\n\r\n### Angular Usage\r\n```typescript\r\nimport { UiHeaderDirective, UiMenuDirective, UiButtonDirective } from 'your-library';\r\n\r\n@NgModule({\r\n  declarations: [UiHeaderDirective, UiMenuDirective, UiButtonDirective],\r\n})\r\nexport class YourModule {}\r\n\r\n// In template:\r\n<ui-header [sticky]=\"true\">\r\n  <ui-menu\r\n    [type]=\"'horizontal'\"\r\n    [size]=\"'medium'\"\r\n    [elements]=\"menuItems\"\r\n  ></ui-menu>\r\n  <h1>РАЗРАБОТЧИК</h1>\r\n  <ui-button\r\n    [type]=\"'primary'\"\r\n    [size]=\"'medium'\"\r\n    [label]=\"'Заказать сайт'\"\r\n    (click)=\"handleButtonClick($event)\"\r\n  ></ui-button>\r\n</ui-header>\r\n\r\n// In component class:\r\nmenuItems = [\r\n  { name: 'Услуги', url: '/services' },\r\n  { name: 'Портфолио', url: '/portfolio' },\r\n  { name: 'О компании', url: '/about' }\r\n];\r\n\r\n\r\nhandleButtonClick(event: Event) {\r\n  console.log('Order button clicked');\r\n  // Open order form\r\n}\r\n```\r\n\r\n### React Usage\r\n```jsx\r\nimport { ReactUiHeader, ReactUiMenu, ReactUiButton } from 'your-library';\r\n\r\nfunction App() {\r\n  const menuItems = [\r\n    { name: 'Услуги', url: '/services' },\r\n    { name: 'Портфолио', url: '/portfolio' },\r\n    { name: 'О компании', url: '/about' }\r\n  ];\r\n\r\n\r\n  const handleOrderClick = () => {\r\n    console.log('Order button clicked');\r\n    // Open order form\r\n  };\r\n\r\n  return (\r\n    <ReactUiHeader sticky >\r\n      <ReactUiMenu\r\n        type=\"horizontal\"\r\n        size=\"medium\"\r\n        elements={menuItems}\r\n      />\r\n      <h1>РАЗРАБОТЧИК</h1>\r\n      <ReactUiButton\r\n        type=\"primary\"\r\n        size=\"medium\"\r\n        label=\"Заказать сайт\"\r\n        onClick={handleOrderClick}\r\n      />\r\n    </ReactUiHeader>\r\n  );\r\n}\r\n```"}}}},Default={},__namedExportsOrder=["Default"];Default.parameters={...Default.parameters,docs:{...Default.parameters?.docs,source:{originalSource:"{}",...Default.parameters?.docs?.source}}}}}]);
+//# sourceMappingURL=UiHeader-stories.29f950e4.iframe.bundle.js.map
